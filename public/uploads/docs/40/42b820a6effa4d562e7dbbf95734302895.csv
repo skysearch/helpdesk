@@ -1,0 +1,17 @@
+user_info_id,razao,nome,cnpj,contato,telefone,endereco,bairro,cidade,estado,cep,dominio,email_contato,email,ativo,created,obs,usuario,senha,modified
+72,,Rubensmata,,Rubens,"(12) 3923-4856",,,"São José dos Campos",sp,,rubensmatta.com,,rmatta@uol.com.br,s,2008-09-24,,,348729,NULL
+137,,"Cesardoria ",0,MARCOS,"(12) 3942-6836","Rua Joaquim de Moura Candelaria, 328 ",,"São Jose dos Campos",sp,12242-560,cesardoria.com,,advcesardoria@bol.com.br,s,2008-09-24,,0,43937,NULL
+235,,michelcarrosantigos.com.br,0,ALEXANDRE,"(12) 3947-8066",,,"sao jose dos campos",sp,00000-000,michelcarrosantigos.com.br,,"alexandreblanco@hotmail.com ",s,0000-00-00,97174585,0,811385,NULL
+244,,"Nuance cabeleireiros",0,"FERNANDO ","(12) 3917-2129","av ouro fino, 140","Bosque dos eucaliptos","sao jose dos campos",sp,,nuancecabeleireiros.com.br,,"fferreira000@petrobras.com.br, fferreirasonia@terra.com.br",s,0000-00-00,,0,820339,NULL
+272,,"Tec Service",0,custodio,"(12) 3949-9240",,,"São josé dos campos",sp,,,,"tsmaquinas@uol.com.br; tecservice@tecservice.com.br",s,0000-00-00,"(19) 8116-9082",0,433619,NULL
+297,,"Hi Fast Engenharia",0,"Leandro Nogueira","(12) 3206-5926","Rua Doutor Jose de Moura Resende N 441",,"São José dos Campos",sp,,,,comercial@hifastengenharia.com,s,0000-00-00,,0,763614,NULL
+339,NULL,Tecnogeo,0,NULL,"(12) 3937-1711","Av. guadalupe, 599","Jd. America","São José dos Campos",sp,NULL,tecnogeiogis.com.br,NULL,abisael@tecnogeogis.com.br,s,0000-00-00,"(12) 9728-2980 - abisael
+
+33026203",0000000,872478,NULL
+381,,"Glauco Turzi Sepinho",0,glauco,"(12) 9713-4597","RLeme, 121, Ap22 ","JdIndustrias ","sao jose dos campos",sp,12240-180,,,glauco.entv@gmail.com,s,0000-00-00,,0,387693,NULL
+423,,"M Gabi",0,"Gabriela e Cristina","(12) 3921-6678",,,"São José dos Campos",sp,,www.mgabi.com.br,,"gabiabud@hotmail.com, cristinafischer@directnet.com.br",s,0000-00-00,"Celular: 8121.3883
+
+",0,64050,NULL
+461,NULL,"Emerson Palmeira",0,NULL,"(11) 8515-8075","Av. Ministro. Gabriel de Resende Passos, 500 - Cj 1201",Moema,"São Paulo",sp,NULL,NULL,NULL,"emersonpalmeira@hotmail.com, financeiro@skinlive.com.br",s,0000-00-00,NULL,00000000000000,538452,NULL
+462,NULL,"Eduardo Amato - Beijo com Queijo",0,NULL,"(00) 0000-0000",NULL,NULL,-,sp,NULL,NULL,NULL,eduamato@gmail.com,s,0000-00-00,NULL,00000000000000,187716,NULL
+537,"Luciano Oloveira","Luciano Oliveira",0,NULL,"(12) 0000-0000",NULL,NULL,sjcampos,sp,NULL,NULL,NULL,vendas.of@gmail.com,s,0000-00-00,NULL,0000000000,94414,NULL

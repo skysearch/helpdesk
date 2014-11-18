@@ -1,0 +1,151 @@
+<?php
+echo $this->partial('ticket/list/_buttons.phtml');
+
+//Zend_Debug::dump($this->ticket->toArray());
+?>
+<div class="box-ticket">
+    <h2><?php echo $this->translate($this->ticket['assunto']); ?></h2>
+    <p class="date" title="Nome do cliente e prazo de cumprimento do chamado.">
+        <i class="fa fa-user"></i> <?php echo $this->escape($this->ticket['cliente_nome']); ?> <i class="fa fa-bell-o"></i> <?php echo $this->ticket['prazo']->format('d/m/Y H:i'); ?>
+    </p>
+
+    <p><?php echo nl2br($this->escape($this->ticket['descricao'])); ?></p>
+
+    <?php if (count($this->ticket['arquivo']) > 0) { ?>
+        <a class="anexo" href="<?php echo $this->baseUrl('uploads' . DS . 'docs' . DS . $this->ticket['ticket_id'] . DS . $this->ticket['arquivo']['name']); ?>" target="_blank"><i class="fa fa-cloud-download"></i> <?php echo $this->escape($this->ticket['arquivo']['real_name']); ?></a>
+        <?php
+    }
+    ?>   
+</div>
+<div class="box-ticket-detalhe">
+    <ul>
+        <li><span>Cliente:</span> <?php echo $this->translate($this->ticket['cliente']); ?></li> 
+        <li><span>Nível:</span> <?php echo $this->escape($this->ticket['departamento']); ?></li> 
+        <li><span>Operador:</span> <?php echo $this->escape($this->ticket['operador_nome']); ?></li> 
+        <li><span>Data de Abertura:</span> <?php echo $this->ticket['created']->format('d/m/Y H:i'); ?></li>
+        <?php
+        if ($this->operador['role_name'] != 'cliente') {
+            ?>
+        <li><span>Ultima Alteração:</span> <?php echo ($this->ticket['modified'] instanceof DateTime)?$this->ticket['modified']->format('d/m/Y H:i'):$this->ticket['created']->format('d/m/Y H:i'); ?></li>
+            <li><span>Prioridade:</span> <?php echo $this->escape($this->translate($this->ticket['prioridade'])); ?></li>
+            <?php
+        }
+        ?>
+        <li><span>Status:</span> <?php echo $this->escape($this->translate($this->ticket['status'])); ?></li>
+    </ul>
+</div>
+<?php
+if ($this->ticket['status'] != 'chamado-finalizado') {
+    ?>
+    <div class="box-ticket-button">
+        <a role="button" class="finalizar"  onclick="$.ticket_list_finalizar(<?php echo $this->ticket['ticket_id']; ?>)"  href="javascript:void(0);">Finalizar Chamado</a>
+    </div>
+    <script type="text/javascript">
+        $(function() {
+            $.ticket_list_finalizar = function(id) {
+                id_reg = id;
+                $('#ticket_list-finalizar-confirm').dialog('open');
+                return false;
+            }
+            $('#ticket_list-finalizar-confirm').dialog({
+                'autoOpen': false,
+                'resizable': false,
+                'height': '150',
+                'width': '350',
+                'modal': true,
+                'question': 'Finalizar chamado?',
+                'description': 'Esse chamado será finalizado. Você tem certeza que deseja continuar?',
+                'buttons': {
+                    'Cancelar': function() {
+                        $(this).dialog('close');
+                    }, 'Finalizar': function() {
+                        document.location = '<?php echo $this->url(array('action' => 'finalizar', 'controller' => 'ticket', 'module' => 'helpdesk'), null, true); ?>/id/' + id_reg;
+                        $(this).dialog('close');
+                    }
+                }
+            });
+        });
+    </script>
+    <div id="ticket_list-finalizar-confirm" title="Finalizar chamado?">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Esse chamado será finalizado. Você tem certeza que deseja continuar?
+        </p>
+    </div>  
+
+    <?php echo $this->form; ?>
+
+    <?php
+} else {
+    ?>
+    
+    <?php if($this->limitDate($this->ticket['created'])){ ?>
+    <div class="box-ticket-button">
+        <a role="button" class="reabrir"  onclick="$.ticket_list_reabrir(<?php echo $this->ticket['ticket_id']; ?>)"  href="javascript:void(0);">Reabrir Chamado</a>
+    </div>
+    <?php } ?>
+    <script type="text/javascript">
+        $(function() {
+            $.ticket_list_reabrir = function(id) {
+                id_reg = id;
+                $('#ticket_list-reabrir-confirm').dialog('open');
+                return false;
+            }
+            $('#ticket_list-reabrir-confirm').dialog({
+                'autoOpen': false,
+                'resizable': false,
+                'height': '150',
+                'width': '350',
+                'modal': true,
+                'question': 'Reabrir chamado?',
+                'description': 'Esse chamado será reaberto. Deseja continuar?',
+                'buttons': {
+                    'Cancelar': function() {
+                        $(this).dialog('close');
+                    }, 'Reabrir': function() {
+                        document.location = '<?php echo $this->url(array('action' => 'reabrir', 'controller' => 'ticket', 'module' => 'helpdesk'), null, true); ?>/id/' + id_reg;
+                        $(this).dialog('close');
+                    }
+                }
+            });
+        });
+    </script>
+    <div id="ticket_list-reabrir-confirm" title="Reabrir chamado?">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Esse chamado será reaberto. Deseja continuar?
+        </p>
+    </div>     
+    <?php
+}
+?>
+
+<?php
+if (count($this->andamento) > 0) {
+    foreach ($this->andamento as $row) {
+        $css = 'box-andamento ';
+        
+        if($row['status']=='chamado-finalizado' || $row['status']=='chamado-reaberto'){
+            $css .="{$row['status']} ";
+        } else {
+            if ($row['proprietario'] == $this->ticket['operador_id']) {
+                $css .='operador ';
+            } else if ($row['proprietario'] == $this->ticket['proprietario']) {
+                $css .='cliente ';
+            } else {
+                $css .='outro ';
+            }
+        }
+        ?>
+        <div class="<?php echo $css; ?>">
+            <p class="date"><?php echo $row['modified']->format('d/m/Y H:i'); ?></p>
+            <h3 class="nome"><?php echo $this->escape($row['proprietario_nome']); ?></h3>
+            <p><?php echo nl2br($this->escape($row['descricao'])); ?></p>
+
+            <?php if (!empty($row['arquivo']['name']) > 0) { ?>
+                <a class="anexo" href="<?php echo $this->baseUrl('uploads' . DS . 'docs' . DS . $this->ticket['ticket_id'] . DS . $row['arquivo']['name']); ?>" target="_blank"><i class="fa fa-cloud-download"></i> <?php echo $this->escape($row['arquivo']['real_name']); ?></a>
+                <?php
+            }
+            ?>
+        </div>
+        <?php
+    }
+} 

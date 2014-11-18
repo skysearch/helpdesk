@@ -1,0 +1,29 @@
+<div class="relatorio-body">
+<?php 
+
+foreach ($this->informations as $title=>$rows){
+    ?>
+    <h3><span><?php echo $title; ?></span></h3>
+    <table cellspacing="0" width="100%">
+    <?php
+        foreach ($rows as $value){
+            if((string)$value['value']=='1'||(string)$value['value']=='true'){
+                $value['value'] = "Sim";
+            } else {
+                if((string)$value['value']=='false'||(string)$value['value']=='0'){
+                    $value['value'] = "Não";
+                }
+            }   
+            ?>
+            <tr>
+                <th width="25%"><?php echo $value['label']; ?></th>
+                <td><?php echo $value['value']; ?></td>
+            </tr>
+            <?php
+        }
+        ?>
+    </table>     
+   <?php
+}
+?>
+</div>

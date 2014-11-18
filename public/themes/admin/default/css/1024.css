@@ -1,0 +1,210 @@
+/* 
+    Document   : 1024.css
+    Created on : 13/02/2013, 12:17:59
+    Author     : mac1
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+h1 span {
+    font-size: 18px
+}
+h2 span {
+    font-size: 15px
+}
+form * {
+    font-size: 11px;
+}
+form ul li p.hint {
+    font-size: 10px;
+}
+form input[type='text'], form input[type='password'] {
+    padding: 5px 0 6px 8px;
+    width: 350px;
+}
+form input[type="text"][role],form input[type="password"][role] {
+    width: 335px;
+}
+form select {
+    width: 361px;
+    padding: 3px 5px;
+    display: block;
+}
+
+form textarea {
+    width: 350px;
+    padding: 3px 5px;
+}
+
+form input.size-1 {
+    width: 120px !important;
+}
+form input.size-2 {
+    width: 220px !important;
+}
+form input.size-3 {
+    width: 420px !important;
+}
+form input.size-4 {
+    width: 520px !important;
+}
+
+form select.size-1 {
+    width: 115px !important;
+}
+form select.size-2 {
+    width: 215px !important;
+}
+form select.size-3 {
+    width: 405px !important;
+}
+form select.size-4 {
+    width: 505px !important;
+}
+
+form ul.errors, form label.error {
+    margin-left: 110px;
+}
+form ul.errors li, form label.error {
+    font-size: 10px;
+}
+form label.required span.required {
+    font-size: 10px;
+    padding-left: 3px;
+}
+form div.errors {
+    font-size: 11px;
+    padding: 5px 8px;
+}
+a[role="button"], button, input[type="submit"] {
+    padding: 4px 10px 5px;
+}
+.message li {
+    width: 960px;
+    font-size: 13px;
+}
+#content.message .message {
+    width: 500px;
+    height: 130px;
+}
+#content.message .message li {
+    padding: 15px 15px 15px 135px;
+    font-size: 12px;
+}
+#content.message .message li h2 span {
+    font-size: 18px;
+}
+form.tabs ul {
+    width: 785px;
+}
+
+form.tabs > ul > li {
+    width: 580px; 
+}
+
+form.tabs > ul > li.button {
+    padding: 8px 0;
+}
+
+form.tabs > ul > li.button button { 
+    margin-left:227px
+}
+
+form.tabs > ul > li.nav-tabs {
+    width: 150px; 
+    margin: 0 25px 0 0;
+}
+form.tabs > ul > li.nav-tabs ul {
+    width: 140px;
+}
+#fieldset-DataSearch .button {
+    padding-left: 10px;
+}
+#fieldset-DataSearch label.error {
+    margin: 0 0 0 10px;
+}
+#fieldset-DataSearch .ui-combobox-input {
+    width: 120px;
+}
+#fieldset-DataSearch li input[role="search"] {
+    width: 120px;
+}
+#fieldset-DataAuth .button,
+#fieldset-DataAuth ul.errors,
+#fieldset-DataAuth label.error {
+    margin-left: 107px;
+}
+#fieldset-DataAuth label.error {
+    width: 250px
+}
+#fieldset-DataAuth li.cadastre_se,
+#fieldset-DataAuth li.lembrar {width: 50px;}
+
+#fieldset-DataAddPictureUser  label {
+    width: 120px
+}
+#fieldset-DataAddPictureUser .hint,
+#fieldset-DataAddPictureUser label.error {
+    margin-left: 140px;
+}
+.ui-combobox-input {
+    width: 324px;
+}
+.ui-combobox-toggle {
+   padding: 6px 8px 8px 8px!important;
+   width: 10px;
+}
+.ui-autocomplete {
+    max-height: 120px;
+}
+
+.mapa { 
+   width: 270px;
+   height: 300px;
+}  
+#avatar.foto img {
+    max-width: 350px;
+    height: auto;
+}
+#link a[role="button"] {
+    margin-left: 105px;
+}
+
+
+
+
+form input[role="user"] {
+    padding: 5px 0 6px 25px;
+}
+form input[role="pass"] {
+    padding: 5px 0 6px 25px;
+}
+form input[role="mail"] {
+    padding: 5px 0 6px 25px;
+}
+form input[role="tel"] {
+    padding: 5px 0 6px 25px;
+}
+form input[role="date"] {
+    padding: 5px 0 6px 25px;
+}
+form input[role="url"] {
+    padding: 5px 0 6px 25px;
+}
+form input[role="currency"] {
+    padding: 5px 6px 6px 19px;
+    text-align: right;
+}
+form input[role="card"] {
+    padding: 5px 0 6px 25px;
+}
+form input[role="account"] {
+    padding: 5px 0 6px 25px;
+}
+form input[role="search"] {
+    padding: 5px 0 6px 25px;
+}
+form input[role="integer"] {
+    padding: 5px 6px 6px 19px;
+    text-align: right;
+}

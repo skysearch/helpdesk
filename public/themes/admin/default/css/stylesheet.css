@@ -1,0 +1,917 @@
+/* 
+    Document   : stylesheet
+    Created on : 28/05/2012, 19:21:14
+    Author     : mac1
+    Description:
+        Purpose of the stylesheet follows.
+
+
+   http://www.iconfinder.com/search/?q=iconset%3Aduesseldorf
+*/
+
+* {
+    font-family: Tahoma,Verdana,Arial
+}
+
+body {
+    background: #FFF
+}
+a {
+    color:#FFD798;
+}
+h1 {
+    margin-bottom: 25px 
+}
+h1 span {
+    font-size: 23px
+}
+h1 {
+    padding-bottom: 25px;
+    margin-bottom: 10px;
+    background: url(../img/indent.gif) repeat-x bottom;
+}
+
+h2 {
+    margin-bottom: 25px 
+}
+h2 span {
+    font-size: 18px
+}
+
+h3 {
+    margin-bottom: 10px
+}
+h3 span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+p {font-size: 12px}
+
+div.container {
+    position: relative;
+    overflow: hidden;
+}
+
+form * {
+    font-size: 12px;
+    color: #444444;
+}
+form fieldset {
+
+}
+form legend {
+
+}
+form label {
+    width: 115px;
+    float: left;
+    margin: 0 10px 0
+} 
+form ul {
+    
+    
+}
+form ul li {
+    margin: 0 0 8px 0;
+    overflow: hidden;
+}
+form ul li p.hint {
+    font-size: 11px;
+    font-style: italic;
+    clear: left;
+    float: left;
+    margin-left: 140px;
+}
+form input[type='text'], form input[type='password'] {
+    border: solid 1px #BBB;
+    float: left;
+    padding: 5px 0 6px 8px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    width: 380px;
+}
+
+form input[role="user"] {
+    background: url(../img/icons_input/user.png) #FFF no-repeat scroll 5px;
+    padding: 5px 0 6px 25px;
+}
+form input[role="pass"] {
+    background: url(../img/icons_input/pass.png) #FFF no-repeat scroll 5px;
+    padding: 5px 0 6px 25px;
+}
+form input[role="mail"] {
+    background: url(../img/icons_input/mail.png) #FFF no-repeat scroll 5px;
+    padding: 5px 0 6px 25px;
+}
+form input[role="tel"] {
+    background: url(../img/icons_input/tel.png) #FFF no-repeat scroll 5px;
+    padding: 5px 0 6px 25px;
+}
+form input[role="date"] {
+    background: url(../img/icons_input/calendar.png) #FFF no-repeat scroll 5px;
+    padding: 5px 0 6px 25px;
+}
+form input[role="url"] {
+    background: url(../img/icons_input/url.png) #FFF no-repeat scroll 5px;
+    padding: 5px 0 6px 25px;
+}
+form input[role="currency"] {
+    background: url(../img/icons_input/currency.png) #FFF no-repeat scroll 5px;
+    padding: 5px 6px 6px 19px;
+    text-align: right;
+}
+form input[role="card"] {
+    background: url(../img/icons_input/card.png) #FFF no-repeat scroll 5px;
+    padding: 5px 0 6px 25px;
+}
+form input[role="account"] {
+    background: url(../img/icons_input/account.png) #FFF no-repeat scroll 5px;
+    padding: 5px 0 6px 25px;
+}
+form input[role="search"] {
+    background: url(../img/icons_input/search.png) #FFF no-repeat scroll 5px;
+    padding: 5px 0 6px 25px;
+}
+form input[role="integer"] {
+    background: /*url(../img/icons_input/currency.png)*/ #FFF no-repeat scroll 5px;
+    padding: 5px 6px 6px 19px;
+    text-align: right;
+}
+form legend {
+    /*-moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    background: #666;
+    color:#FFF;*/
+    padding: 2px 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+form fieldset {
+    display: block;
+    margin-bottom: 25px;
+}
+/*form fieldset.fieldset-buttons {
+    margin-top: -25px;
+}*/
+form input[type="text"][role],form input[type="password"][role] {
+    width: 365px;
+}
+form select {
+    width: 391px;
+    padding: 3px 5px;
+    display: block;
+}
+
+form textarea {
+    width: 380px;
+    padding: 3px 5px;
+    border: solid 1px #BBB;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+}
+
+form input.size-1 {
+    width: 150px !important;
+}
+form input.size-2 {
+    width: 250px !important;
+}
+form input.size-3 {
+    width: 450px !important;
+}
+form input.size-4 {
+    width: 550px !important;
+}
+
+form select.size-1 {
+    width: 135px !important;
+}
+form select.size-2 {
+    width: 235px !important;
+}
+form select.size-3 {
+    width: 435px !important;
+}
+form select.size-4 {
+    width: 535px !important;
+}
+
+form ul.errors, form label.error {
+    float: left;
+    margin-left: 140px;
+    clear: left;
+}
+form ul.errors li, form label.error {
+    font-size: 10px;
+    color:#C01717/*#8A6741*/;
+    width: auto;
+}
+form label.required span.required {
+    font-size: 10px;
+    color:#C01717/*#8A6741*/;
+    padding-left: 3px;
+    vertical-align:top;
+}
+form div.errors {
+    font-size: 12px;
+    color:#C01717;
+    padding: 5px 8px;
+    background: #f4f2f2;
+    border: solid 1px #C01717;
+    margin-bottom: 15px;
+    display: none;
+}
+
+
+form .fieldset-buttons label.optional {
+    visibility: hidden
+}
+
+form.tabs {
+    display: none;
+}
+
+form #fieldset-PrivilegesData li {
+    /*float: left;*/
+    margin-right: 10px;
+    width: 99.6%;
+    /*min-width: 150px;
+    min-height: 180px;*/
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border: solid 1px #999;
+    background: #E3E3E2;
+    padding-bottom: 8px; 
+}
+
+form #fieldset-PrivilegesData li label.optional{
+    visibility: visible;
+    display: block;
+    background: #666;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    padding: 2px 5px;
+    margin: 0 0 8px;
+    color:#EFEFEF;
+    width: 100%;
+}
+form #fieldset-PrivilegesData li label {
+    /*clear: both;*/
+    width: 45%
+}
+form #fieldset-PrivilegesData li br {
+    display: none;
+}
+
+a[role="button"], button, input[type="submit"] {
+    -moz-transition-duration: 0.3s;
+    -moz-transition-property: border-color;
+    background-clip: padding-box;
+    background-color: #705536;
+    background-image: -moz-linear-gradient(#8A6741, #705536);
+    border: 1px solid #614023;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font: 13px/17px Tahoma,Geneva,sans-serif;
+    margin: 0 10px 0 0;
+    padding: 4px 10px 5px;
+    text-align: left;
+    text-shadow: 0 0 0 transparent, 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.button-blue, #fb-auth {
+    background-color: #6c89b4 !important;
+    background-image: -moz-linear-gradient(#819fcc, #6c89b4) !important;
+    border: 1px solid #234761 !important;
+    color: #FFFFFF;
+}
+
+.button-small {
+    padding: 4px 10px 5px;
+    font: 11px/13px Tahoma,Geneva,sans-serif;
+}
+
+button:hover {
+
+}
+
+#fieldset-DataSearch li {
+    float: left;
+}
+#fieldset-DataSearch li label.optional {
+    width:1px;
+    visibility: hidden;
+    margin: 0 3px
+}
+#fieldset-DataSearch li label[for="search"] {
+    width: 120px;
+    margin-top: 5px;
+    visibility: visible;
+    display: none;
+}
+#fieldset-DataSearch li input[role="search"] {
+    width: 180px;
+}
+
+#fieldset-DataSearch li select {
+    float: left;
+}
+
+
+#content.system .message {
+    margin: -21px -20px 20px;
+}
+
+.message {
+    border-bottom: solid 1px #CCC;
+    padding: 5px;
+    background: #275670;
+    color: #FFE59E
+}
+.message li {
+    width: 960px;
+    margin: 0 auto;
+    font-size: 13px;
+    padding: 3px 3px 3px 25px;
+    display: block
+}
+.message.error li {
+    background: url(../img/icons_message/error.png) no-repeat left;
+}
+.message.alert li {
+    background: url(../img/icons_message/alert.png) no-repeat left;
+}
+.message.info li {
+    background: url(../img/icons_message/info.png) no-repeat left;
+}
+.message.sucess li {
+    background: url(../img/icons_message/sucess.png) no-repeat left;
+}
+
+
+
+#content.message .message {
+    position: absolute;
+    width: 500px;
+    height: 130px;
+    left: 50%;
+    top:50%;
+    margin-left: -250px;
+    margin-top: -200px;
+    overflow: hidden;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    box-shadow:5px 5px 10px #999;
+    -moz-box-shadow:5px 5px 10px #999;
+    -webkit-box-shadow:5px 5px 10px, #999;
+    border: solid 1px #3C578C
+}
+#content.message .message li {
+    display: block;
+    padding: 15px 15px 15px 135px;
+    font-size: 13px;
+    min-height: 128px;
+    width: auto;
+    color: #FFF;
+}
+#content.message .message li h2 span {
+    font-size: 23px;
+}
+#content.message .message.error li {
+    background: url(../img/icons_message/error.png) no-repeat left;
+}
+#content.message .message.alert li {
+    background: url(../img/icons_nuvola/alert.png) no-repeat left top;
+}
+#content.message .message.info li {
+    background: url(../img/icons_message/info.png) no-repeat left;
+}
+#content.message .message.sucess li {
+    background: url(../img/icons_message/sucess.png) no-repeat left;
+}
+
+div.top {
+    background: /*url(../img/background-top.png) repeat-x top*/ #FFF;
+    height: 65px;
+    overflow: hidden;
+}
+div.top h1.logo {
+    background: url(../img/logo.png) no-repeat top left;
+    width: 120px;
+    height: 50px;
+    margin: 5px 15px 0;
+    float: left;
+    display: block;
+}
+div.top h1.logo span {
+    display: none
+}
+div.top div.user-box {
+    width: 215px;
+    height: 45px;
+    float: right;
+    margin: 15px 15px 0;
+}
+div.top div.user-box a[role="button"]{
+    float: right;
+    margin-right: 0;
+    padding: 3px 8px 4px;
+}
+div.top div.user-box div.dados {
+    background:url(../img/blue-extended-icons-set/32x32/user.png) no-repeat left;
+    padding-left: 38px;
+    float: left;
+}
+div.top div.user-box p.user {
+    color: #000;
+    font-size: 14px;
+}
+div.top div.user-box div.dados a {
+    color: #4DD2FF;
+    font-size: 11px
+}
+
+div.menu {
+    background: url(../img/background-menu.png) repeat-x top;
+    height: 35px;
+}
+div.bottom {
+    background: url(../img/background-menu.png) repeat-x top;
+    height: 88px;
+    overflow: hidden;
+}
+
+.buttons-right {
+    float: right;
+    margin: -45px 0 0;
+}
+
+
+
+
+/*
+ * Tela de logon
+*/
+body.logon {
+}
+
+body.logon input[role="user"], body.logon input[role="pass"] {
+    width: 280px;
+}
+body.logon label {
+    width: 50px;
+}
+
+
+#auth-user {
+    width: 400px;
+    height: 250px;
+    margin: 40px auto;
+}
+#content {
+    background: #FFF ;
+    border-top: 1px solid #FFFFFF;
+    line-height: 18px;
+    margin: 0 auto;
+    min-height: 450px;
+    padding: 20px 0 30px;
+    position: relative;
+    overflow: hidden;
+}
+#content.system {
+    padding: 20px 20px 30px
+}
+
+
+/*
+ * Relatorios
+*/ 
+
+#content div.relatorio-body {
+
+}
+#content div.relatorio-body div.block {
+    width: 98%
+}
+
+#content div.relatorio-body h2 {
+    display: none
+}
+#content div.relatorio-body h3 {
+    font-weight: bold;
+    margin-bottom: 15px
+}
+
+#content div.relatorio-body table {
+    margin: 10px 0 10px;
+    background: #FFF;
+    width: 100%
+}
+
+#content div.relatorio-body td,
+#content div.relatorio-body th {
+    font-size: 12px;
+    padding: 5px;
+}
+
+#content div.relatorio-body table thead {
+
+}
+
+#content div.relatorio-body table thead th {
+    background: #BBB;
+
+}
+
+#content div.relatorio-body table tbody th {
+    background: #FFF;
+    border-bottom: solid 1px #CCC;
+    border-left: none;
+    border-right: none;
+}
+
+#content div.relatorio-body table tbody td {
+    border: none;
+}
+#content div.relatorio-body table tbody td a {
+    color: #0000FF;
+}
+#content div.relatorio-body table tbody tr:nth-child(odd) td {
+    background: #EFEFEF;
+}
+
+#content div.relatorio-body table tfoot td,
+#content div.relatorio-body table tbody tr.total td {
+    border-top: 1px solid #999; 
+}
+
+#content div.relatorio-body table tbody tr:nth-child(even) td {
+    background: #E3E3E2;
+}
+
+
+
+#fieldset-Prods > ul > li {float: left; width: 100%; margin-bottom: 5px; clear: both; overflow: hidden}
+#fieldset-Prods > ul > li > fieldset {margin-bottom: 0; overflow: hidden; border-bottom: solid 1px #CBCBCB}
+#fieldset-Prods > ul > li > fieldset > li {float: left; margin-bottom: 5px; padding: 5px; height: 55px}
+#fieldset-Prods > ul > li > fieldset > li > label {display: block}
+#fieldset-Prods > ul > li > fieldset > li > input {clear: both}
+
+fieldset#fieldset-ButtonPr  {border-bottom:none !important}
+#fieldset-ButtonPr > li > label {display: none !important}
+
+
+
+table.dataTable .numero {
+    text-align: right;
+    padding: 3px 10px;
+}
+
+/*
+.ui-tabs-vertical { width: 55em; }
+.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
+.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+*/
+form.tabs ul {
+    width: 785px;
+    padding-bottom: 40px;
+    display: block;
+    overflow: hidden;
+}
+
+form.tabs > ul > li {
+    float: left; 
+    width: 580px; 
+    clear: none;
+}
+
+form.tabs > ul > li.button {
+    clear: left;
+    /*margin-left: 205px;*/
+    /*background: #CCC;*/
+    background: url(../img/opacity-5.png);
+    padding: 8px 0;
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    margin: 40px 0 0;
+    
+}
+
+form.tabs > ul > li.button button { 
+    /*margin-left: 135px;*/
+    margin-left:227px
+}
+
+form.tabs > ul > li.nav-tabs {
+    float: left; 
+    overflow: hidden; 
+    width: 180px; 
+    clear: left; 
+    display: block; 
+    margin: 0 25px 0 0;
+}
+form.tabs > ul > li.nav-tabs ul {
+    width: 170px;
+}
+
+form.tabs > ul > li.nav-tabs ul li {
+    background: #CCC; 
+    padding: 1px 5px; 
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+}
+
+form.tabs > ul > li.nav-tabs ul li a.error span {
+    color: #c01717;
+    padding-left: 18px;
+    background: url(../img/icons_message/error_small.png) no-repeat left;
+}
+
+form.tabs > ul > li.nav-tabs ul li.selected {
+    background: #666;
+}
+
+form.tabs > ul > li.nav-tabs ul li.selected a.error span {
+    color: #FFF000;
+}
+
+form.tabs > ul > li.nav-tabs ul li.selected a span {
+    color: #DDD;
+}
+
+#fieldset-DataSearch .button {
+    padding-left: 10px;
+}
+#fieldset-DataSearch label.error {
+    margin: 0 0 0 10px;
+}
+#fieldset-DataSearch .ui-combobox-input {
+    width: 150px;
+}
+
+#fieldset-DataAuth .button,
+#fieldset-DataAuth ul.errors,
+#fieldset-DataAuth label.error {
+    /*margin-left: 72px*/
+    /*margin-left: 137px;*/
+    text-align: right;
+    width: 365px;
+}
+#fieldset-DataAuth li.cadastre_se,
+#fieldset-DataAuth li.lembrar {float: left; width: 80px; margin-left: 1px; margin-right: 5px}
+#fieldset-DataAuth li.cadastre_se a,
+#fieldset-DataAuth li.lembrar a {color: #705536}
+#fieldset-DataAuth .button button {float: right}
+#fieldset-DataAuth label {margin-left: 0}
+
+
+
+#fieldset-DataAddPictureUser .facebook-picture {
+    
+}
+#fieldset-DataAddPictureUser  label {
+    width: 150px
+}
+
+#fieldset-DataAddPictureUser .facebook-picture img
+{
+    margin-left: 0px;
+    margin-top: 15px;
+    border: 3px solid #FFF;
+}
+
+#fieldset-DataAddPictureUser .hint,
+#fieldset-DataAddPictureUser label.error {
+    margin-left: 170px;
+}
+
+#fieldset-DataAddPictureUser li.facebook-picture {
+    border-bottom: solid 1px #CCC;
+    padding-bottom: 8px;
+}
+
+.ui-combobox {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+.ui-combobox-input {
+    border: 1px solid #BBBBBB;
+    float: left;
+    padding: 6px 0 6px 8px;
+    width: 354px;
+    font-weight: normal;
+    color: #444444;
+    background: #FFF;
+}
+.ui-combobox  a.ui-button {
+    background: #FFF;
+    border:solid #BBBBBB;
+    border-width: 1px 1px 1px 0;
+    height: 10px;
+}
+.ui-combobox-toggle {
+   padding: 9px 8px 8px 8px!important;
+   width: 10px;
+   border-radius: 0px 3px 3px 0px !important;
+   -moz-border-radius: 0px 3px 3px 0px !important;
+   -webkit-border-radius: 0px 3px 3px 0px !important;
+   -khtml-border-radius: 0px 3px 3px 0px !important;
+}
+.ui-autocomplete {
+    max-height: 150px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    font-size: 0.7em
+}
+
+.mapa { 
+	/*width: 550px;
+	height: 350px;
+	border: 3px solid #ccc;;
+        float: right;
+        margin-right: 0px;
+        margin-top:110px;*/
+        width: 580px;
+	height: 350px;
+	border: 3px solid #ccc;;
+        position: absolute;
+        right: 20px;
+        top:110px;
+}  
+form .text > label {
+   width: auto;
+   display: block;
+   margin: 0 0 10px 0;
+   font-weight: bold;
+   float: none;
+}
+form .text > select, form .text > input {
+    width: auto;
+    display: inline
+}
+form li.text {
+   /*clear: left !important;
+   margin-left: 205px;*/
+   float: right !important;
+   padding: 5px 0;
+}
+form li.text.obtencao {
+    /*margin-bottom: 60px*/
+}
+p.text {
+   margin: 0 0 15px 0; 
+}
+.hidden {
+    display: none !important;
+}
+
+#avatar.foto img {
+    max-width: 380px;
+    height: auto;
+}
+#link a[role="button"] {
+    margin-left: 135px;
+}
+img.foto-list {
+    width: 120px;
+    height: auto;
+}
+
+#navegadores {
+    background: #fff5c6;
+    border: solid 1px #e0d291;
+    padding: 10px;
+    margin-top: 25px
+}
+#navegadores p {
+    font-size: 12px;
+    margin-bottom: 8px
+}
+#navegadores p.icons {
+    text-align: center;
+    margin-top: 35px;
+}
+#navegadores a.icon {
+    padding: 32px;
+    margin: 8px
+}
+#navegadores a.icon span {
+    display: none;
+}
+
+#navegadores a.firefox {
+    background: url(../img/icons_browser/48x48/firefox.png) no-repeat;
+}
+#navegadores a.chrome {
+    background: url(../img/icons_browser/48x48/chrome.png) no-repeat;
+}
+#navegadores .safari {
+    background: url(../img/icons_browser/48x48/safari.png) no-repeat;
+}
+table.dataTable td {}
+table.dataTable td a span {text-transform: capitalize !important}
+
+#fieldset-DataEncerramento legend, #fieldset-DataEncerramento label {width: 510px; margin-bottom: 5px}
+#fieldset-DataEncerramento textarea {clear: both; float: left; height: 50px; width: 450px; margin-left: 10px}
+#fieldset-DataEncerramento p.hint {clear: both; float: left}
+
+ul.link-list {
+    
+}
+ul.link-list li {
+
+}
+ul.link-list li a {
+    color: #614023;
+    font-size: 13px
+}
+
+div.box-right-1cols {
+    float: right;
+    width: 30%;
+    margin-right: 1%
+}
+div.box-left-1cols {
+    float: left;
+    width: 30%;
+    margin-right: 1%
+}
+div.box-left-2cols {
+    float: left;
+    width: 60%;
+    margin-right: 1%
+}
+
+table.table-data {
+    width: 100%;
+    background: #EFEFEF;
+    padding: 5px;
+    margin-bottom: 25px
+}
+table.table-data td {
+    padding: 5px;
+}
+
+table.table-data td, 
+table.table-data td strong, 
+table.table-data td b {
+    font-size: 13px
+}
+
+select#user_id {
+    text-transform: uppercase
+}
+
+#fieldset-DataUploads label {
+    width: 137px
+}
+#fieldset-DataUploads ul li p.hint {
+    margin-left: 157px;
+}
+#userform #fieldset-DataGrupo ul li br {
+    display: none
+}
+#userform #fieldset-DataGrupo ul li label {
+    width: 200px;
+    float: left;
+    padding: 5px
+}
+
+#userform #fieldset-DataCliente ul li br {
+    display: none
+}
+#userform #fieldset-DataCliente ul li label {
+    width: 200px;
+    float: left;
+    padding: 5px
+}

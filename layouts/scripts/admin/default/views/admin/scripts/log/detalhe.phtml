@@ -1,0 +1,264 @@
+<style type="text/css">
+    <!--
+    h3 {font-weight: bold; font-size: 11pt; margin-bottom: 4mm}
+    table {width: 100%; margin-top: 0 !important}
+    table tbody th {width: 30%}
+    table tbody .diff {background: #fcefa1!important}
+    table td table {margin-bottom: 0 !important}
+    table td table td div {width:100%; max-width:350px; overflow:hidden;}
+    .relatorio-body {clear: both; margin-bottom: 35px; overflow: hidden}
+    -->
+</style>
+<div class="relatorio-body">
+    <h3>Informações</h3>
+    <div class="" style="width: 49%; margin-right: 1%; float: left">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                <tr>
+                    <th>Level</th>
+                    <td><?php echo $this->escape($this->list['log']['level']); ?></td>
+                </tr>
+                <tr>
+                    <th>Data/Hora</th>
+                    <td><?php echo $this->list['log']['created']->format('d/m/Y H:i:s'); ?></td>
+                </tr>
+                <tr>
+                    <th>User</th>
+                    <td><?php echo $this->escape($this->list['log']['user_name']); ?></td>
+                </tr>
+                <tr>
+                    <th>Session</th>
+                    <td><a class="colorbox-iframe" href="<?php echo $this->url(array('action'=>'history-session','controller'=>'log','module'=>'admin','id'=>$this->list['log']['session_id']),null,true,true); ?>"><?php echo $this->escape($this->list['log']['session_id']); ?></a></td>
+                </tr>
+                <tr>
+                    <th>IP</th>
+                    <td><?php echo $this->escape($this->list['log']['ip']); ?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="" style="width: 49%; margin-right: 1%; float: left">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                <tr>
+                    <th>Type</th>
+                    <td><?php echo $this->escape($this->list['log']['type']); ?></td>
+                </tr>
+                <tr>
+                    <th>Request</th>
+                    <td><?php echo $this->escape($this->list['log']['request']); ?></td>
+                </tr>
+
+                <?php if (!empty($this->list['log']['event'])) { ?>
+                    <tr>
+                        <th>Event</th>
+                        <td><?php echo $this->escape($this->list['log']['event']); ?></td>
+                    </tr>
+                <?php } ?>
+
+                <?php if (count($this->list['anteriores']) > 0) { ?>
+                    <tr>
+                        <th>Anteriores</th>
+                        <td><?php echo count($this->list['anteriores']); ?></td>
+                    </tr>
+                <?php } ?>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<?php
+?>
+<div class="relatorio-body">
+    
+
+    <?php
+    if($this->list['log']['type']!=Sky_Log::TYPE_ERROR) {
+    if (!empty($this->list['log']['data_post'])) {
+        if(!is_array($this->list['log']['data_post']))
+            $this->list['log']['data_post'] = unserialize($this->list['log']['data_post']);
+        ?>
+        <h3>Informações dos dados</h3>
+        <div class="" style="width: 49%; margin-right: 1%; float: left" >
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr><th colspan="2">Atual</th></tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($this->list['log']['data_post'] as $key => $value) {
+
+                        if (is_array($value)) {
+                            $vl = '<table cellpadding="0" cellspacing="0" border="0">';
+                            foreach ($value as $r) {
+                                foreach ($r as $k => $v) {
+                                    $v = $this->escape((is_array($v)) ? implode(',', $v) : $v);
+                                    $k = $this->escape($k);
+                                    
+                                    if(empty($v))
+                                          continue;
+                                    
+                                    $vl .= "<tr>
+                                                <th>{$k}</th>
+                                                <td><div>{$v}</div></td>
+                                            </tr>";
+                                }
+                                $vl .= "<tr><td colspan=\"2\"></td></tr>";
+                            }
+                            $value = $vl . '</table>';
+                        } else {
+                            $value = $this->escape($value);
+                        }
+                        ?>
+                        <tr>
+                            <th><?php echo $this->escape($key); ?></th>
+                            <td><?php echo $value; ?></td>
+                        </tr>
+                    <?php }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <?php
+    }
+    if (count($this->list['posts'])) {
+        $intr = $this->list['log']['data_post'];
+
+        foreach ($this->list['posts'] as $tbl) {
+            if (!$tbl || count($intr)<=1)
+                continue;
+
+            if (is_array($intr))
+                $inter = array_intersect_assoc($intr, $tbl);
+            else
+                $inter = array();
+            
+            if(count($inter)<=1)
+                continue;
+            ?>
+            <div class="" style="width: 49%; margin-right: 1%; float: left">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                        <tr><th colspan="2">Anterior</th></tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $i = 0;
+                        foreach ($tbl as $key => $value) {
+                            if ((key_exists($key, $inter) && !is_array($value)))
+                                continue;
+                            
+
+                            if (is_array($value)) {
+                                $vl = '<table cellpadding="0" cellspacing="0" border="0">';
+                                foreach ($value as $r) {
+                                    foreach ($r as $k => $v) {
+                                        
+                                        $v = $this->escape((is_array($v)) ? implode(',', $v) : $v);
+                                        $k = $this->escape($k);
+                                        
+                                        if(empty($v))
+                                          continue;
+                                        
+                                        $vl .= "<tr>
+                                                <th>{$k}</th>
+                                                <td><div>{$v}</div></td>
+                                            </tr>
+                                            ";
+                                    }
+                                        $vl .= "<tr><td colspan=\"2\"></td></tr>";
+                                }
+                                $value = $vl . '</table>';
+                            } else {
+                                $value = $this->escape($value);
+                            }
+                            ?>
+                            <tr>
+                                <th><?php echo $this->escape($key); ?></th>
+                                <td><?php echo $value; ?></td>
+                            </tr>
+                            <?php
+                            $i++;
+                        }
+                        /*if ($i == 0) {
+                            ?>
+                            <tr>
+                                <td colspan="2">Não foram feitas alterações.</td>
+                            </tr>
+                            <?php
+                        }*/
+
+                        //$intr = $tbl;
+                        ?>    
+                    </tbody>
+                </table>
+            </div>    
+            <?php
+        }
+    }
+    
+    } else {
+        ?>
+         <h3>Informações</h3>
+        <div class="" style="width: 100%" >
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                        <tr>
+                            <td><?php echo nl2br($this->escape($this->list['log']['data_post'])); ?></td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>    
+        <?php
+    }
+    ?>
+</div>
+<?php
+?>
+
+<div class="relatorio-body">
+    <?php
+    if (count($this->list['anteriores']) > 0) {
+        ?>
+        <h3>Logs anteriores</h3>    
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Data/Hora</th>
+                    <th>User</th>
+                    <th>Request</th>
+                    <th>IP</th>
+                    <th>Event</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php
+                foreach ($this->list['anteriores'] as $row) {
+                    $row['created'] = new DateTime($row['created']);
+                    ?>
+                    <tr>
+                        <td><?php echo $this->escape($row['level']); ?></td>
+                        <td><a href="<?php echo $this->url(array('action' => 'detalhe', 'controller' => 'log', 'module' => 'admin', 'id' => $this->escape($row['log_id']))); ?>"><?php echo $row['created']->format('d/m/Y H:i:s'); ?></a></td>
+                        <td><?php echo $this->escape($row['user_name']); ?></td>
+                        <td><?php echo $this->escape($row['request']); ?></td>
+                        <td><?php echo $this->escape($row['ip']); ?></td>
+                        <td><?php echo $this->escape($row['event']); ?></td>
+                    </tr>
+                    <?php
+                }
+                ?>
+            </tbody>
+
+        </table>
+        <?php
+    }
+    ?>
+</div>
+
+<?php
+//Zend_Debug::dump($this->list);
+?>

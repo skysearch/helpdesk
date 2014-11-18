@@ -1,0 +1,80 @@
+<style type="text/css">
+<!--
+    h3 {font-weight: bold; font-size: 11pt; margin-bottom: 4mm}
+    table {width: 100%}
+    table thead th {width: 15%; border-bottom: 0.1mm solid #000; border-right: 0.1mm solid #000}
+    table thead th.id, table thead th.bool {width: 3%}
+    table thead th.art {width: 10%}
+    table thead th.text-long {width: 20%}
+    table thead th,
+    table tbody td,
+    table tfoot td {padding: 2mm; font-size: 8pt}
+    table thead th.mes {width: 7%; font-size: 8pt}
+    table tbody td {border-bottom: 0.1mm solid #000}
+    table tbody .numero {text-align: right; font-size: 8pt}
+    table tbody .data {width: 10%; font-size: 8pt; text-align: center}
+    table tfoot td {text-align: right; border-bottom: 0.1mm solid #000}
+    table tbody td a {text-decoration: none; color: #000}
+-->
+</style>
+<div class="relatorio-body">
+<h2><?php echo $this->title ; ?></h2>
+<p><?php echo $this->escape($this->msg); ?></p>
+<?php
+if(!is_null($this->list)) {  
+?>
+<table cellpadding="0" cellspacing="0" border="0">
+    <thead>
+        <tr>
+            <th class="id">id</th>
+            <th class="text-long">Nome</th>
+            <th class="text-long">Email</th>
+            <th class="art">Username</th>
+            <th>Nível</th>
+            <th class="data">Ultimo Acesso</th>
+            <th class="data" colspan="2">Vencimento</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <?php
+        //$vencimento = new DateTime();
+        $vencimento = new Zend_Date();
+        foreach ($this->list as $row){
+          //$vencimento = $vencimento->setTimestamp($row['modified']);
+          $vencimento->set($vencimento,  Zend_Date::TIMESTAMP);
+          $ultimo = new DateTime($row['uModified']);
+          
+          if(($auth = @unserialize(str_replace('Zend_Auth|','', $row['data']))) !== FALSE) {
+              //Zend_Debug::dump($auth);
+              $row['user_id'] =  $auth['storage']['user']['user_id'];
+              $row['username'] = $auth['storage']['user']['username'];
+              $row['name'] = $auth['storage']['info']['name'];
+              $row['email'] = $auth['storage']['info']['email'];
+              $row['description'] = $auth['storage']['role']['description'];
+          } else {
+              $row['name'] = 'Usuário não logado';
+              $row['description'] = 'Visitante';
+          }
+        ?>
+        <tr>
+            <td><?php if(!empty($row['user_id'])) { ?><a href="<?php echo $this->url(array('action'=>'editar','controller'=>'user','module'=>'admin','id'=>$row['user_id']),null,true);?>"><?php echo $this->escape($row['user_id']); ?></a><?php }?></td>
+            <td><?php echo $this->escape($row['name']); ?></td>
+            <td><?php echo $this->escape($row['email']); ?></td>
+            <td><?php echo $this->escape($row['username']); ?></td>
+            <td><?php echo $this->escape($row['description']); ?></td>
+            <td class="data"><?php echo $this->escape($ultimo->format('d/m/Y H:i:s')); ?></td>
+            <td class="data"><?php echo $this->escape($vencimento->get(Zend_Date::DATETIME_MEDIUM)); ?></td>
+            <?php $text = (!empty($row['user_id']))?"deslogar":"excluir"; ?>
+            <td><a href="<?php echo $this->url(array('action'=>'online','controller'=>'user','module'=>'admin','id'=>sha1($row['session_id'])),null,true);?>"><?php echo $text; ?></td>
+        </tr>
+        <?php 
+        }
+        ?>
+    </tbody>
+
+</table>
+<?php
+} 
+?>
+</div>

@@ -1,0 +1,17 @@
+<?php echo $this->doctype() ?>
+<html>
+    <!-- frontend layout -->
+    <head>
+        <?php
+        echo $this->headMeta();
+        echo $this->headTitle();
+        echo $this->headLink();
+        echo $this->headStyle();
+        echo $this->headScript();
+        ?>
+    </head>
+    <body>
+        <?php echo $this->layout()->content; ?>
+        <?php echo $this->inlineScript(); ?>
+    </body>
+</html>

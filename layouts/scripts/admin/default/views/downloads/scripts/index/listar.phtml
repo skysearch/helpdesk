@@ -1,0 +1,122 @@
+<div class="buttons-right">
+    <a href="<?php echo $this->url(array('action' => 'listar', 'controller' => 'index', 'module' => 'downloads'), null, true); ?>" role="button" class="list"><i class="fa fa-folder-open-o"></i> Lista de Pastas</a>
+    <?php if ($this->departamento['name'] <> 'cliente' && $this->departamento['name'] <> 'samsung') { ?>
+        <a href="<?php echo $this->url(array('action' => 'adicionar', 'controller' => 'index', 'module' => 'downloads'), null, true); ?>" role="button" class="new"><i class="fa fa-folder-o"></i> Nova Pasta</a>
+    <?php } ?>
+</div>
+
+<?php
+if (count($this->pastas) > 0) {
+    ?>
+    <?php
+    if ($this->departamento['name'] <> 'cliente') {
+        ?>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th width="50%">Descrição</th>
+                    <th width="11%">Data de Criação</th>
+                    <th width="11%">Última Atualização</th>
+                    <?php if($this->departamento['name'] <> 'samsung') { ?><th colspan="2"></th><?php } ?>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($this->pastas as $row) {
+                    ?>
+                    <tr>
+                        <td>
+                            <i class="fa fa-folder"></i>
+                            <a href="<?php echo $this->url(array('action' => 'arquivos', 'controller' => 'index', 'module' => 'downloads', 'id' => $row['pasta_id'])) ?>">
+                                 <?php echo $this->escape($row['nome']); ?>
+                            </a>
+                        </td>
+                        <td><?php echo $this->escape($row['descricao']); ?></td>
+                        <td><?php echo $row['created']->format('d/m/Y H:i'); ?></td>
+                        <td><?php echo $row['modified']->format('d/m/Y'); ?></td>
+                        <?php if($this->departamento['name'] <> 'samsung') { ?>
+                        <td>
+                            <a href="<?php echo $this->url(array('action' => 'editar', 'id' => $row['pasta_id'])) ?>">
+                                <i class="fa fa-pencil"></i> Editar
+                            </a>
+                        </td>
+                        <td>
+                            <a onclick="$.ticket_list_apagar(<?php echo $row['pasta_id']; ?>)"  href="javascript:void(0);<?php $this->url(array('action' => 'apagar', 'id' => $row['pasta_id'])) ?>">
+                                <i class="fa fa-trash-o"></i> Apagar
+                            </a>
+                        </td>
+                        <?php } ?>
+                    </tr>
+                    <?php
+                }
+                ?>
+            </tbody>
+        </table>
+        <?php
+    } else {
+        ?>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th width="50%">Descrição</th>
+                    <th width="11%">Data de Criação</th>
+                    <th width="11%">Última Atualização</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($this->pastas as $row) {
+                    ?>
+                    <tr>
+                        <td>
+                            <i class="fa fa-folder"></i>
+                            <a href="<?php echo $this->url(array('action' => 'arquivos', 'controller' => 'index', 'module' => 'downloads', 'id' => $row['pasta_id'])) ?>">
+                                 <?php echo $this->escape($row['nome']); ?>
+                            </a>
+                        </td>
+                        <td><?php echo $this->escape($row['descricao']); ?></td>
+                        <td><?php echo $row['created']->format('d/m/Y H:i'); ?></td>
+                        <td><?php echo $row['modified']->format('d/m/Y'); ?></td>
+                    </tr>
+                    <?php
+                }
+                ?>
+            </tbody>
+        </table>
+        <?php
+    }
+} 
+?>
+<script type="text/javascript">
+    $(function() {
+        $.ticket_list_apagar = function(id) {
+            id_reg = id;
+            $('#ticket_list-apagar-confirm').dialog('open');
+            return false;
+        }
+        $('#ticket_list-apagar-confirm').dialog({
+            'autoOpen': false,
+            'resizable': false,
+            'height': '150',
+            'width': '350',
+            'modal': true,
+            'question': 'Apagar registro?',
+            'description': 'Esse item será apagado. Você tem certeza que deseja continuar?',
+            'buttons': {
+                'Cancelar': function() {
+                    $(this).dialog('close');
+                }, 'Apagar registro': function() {
+                    document.location = '<?php echo $this->url(array('action' => 'apagar', 'controller' => 'index', 'module' => 'downloads')); ?>/id/' + id_reg;
+                    $(this).dialog('close');
+                }
+            }
+        });
+    });
+</script>
+<div id="ticket_list-apagar-confirm" title="Apagar registro?">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Essa pasta será apagada. Você tem certeza que deseja continuar?
+    </p>
+</div>

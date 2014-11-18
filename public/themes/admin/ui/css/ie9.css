@@ -1,0 +1,106 @@
+/*
+ul.navigation ul li					{ display: inline; width: 100%; } 
+*/
+#fieldset-Prods  ul  li {float: left; width: 100%; margin-bottom: 5px; clear: both; overflow: hidden}
+#fieldset-Prods  ul  li  fieldset {margin-bottom: 0; overflow: hidden; border-bottom: solid 1px #CBCBCB}
+#fieldset-Prods  ul  li  fieldset  li {float: left; margin-bottom: 5px; padding: 5px; height: 55px}
+#fieldset-Prods  ul  li  fieldset  li  label {display: block}
+#fieldset-Prods  ul  li  fieldset  li  input {clear: both}
+
+fieldset#fieldset-ButtonPr  {border-bottom:none !important}
+#fieldset-ButtonPr  li  label {display: none !important}
+form.tabs  ul  li {
+    float: left; 
+    width: 580px; 
+    clear: none;
+}
+
+form.tabs  ul  li.button {
+    clear: left;
+    
+    background: url(../img/opacity-5.png);
+    padding: 8px 0;
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    margin: 40px 0 0;
+    
+}
+
+form.tabs  ul  li.button button { 
+    margin-left:227px
+}
+
+form.tabs  ul  li.nav-tabs ul {
+    float: left; 
+    overflow: hidden; 
+    width: 180px; 
+    clear: left; 
+    display: block; 
+    margin: 0 25px 0 0;
+    float: left;
+}
+
+form.tabs  ul  li.nav-tabs ul li {
+    background: #CCC; 
+    padding: 1px 5px; 
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+}
+
+form.tabs  ul  li.nav-tabs ul li a.error span {
+    color: #c01717;
+    padding-left: 22px;
+    background: url(../img/icons_message/error_small.png) no-repeat left;
+}
+
+form.tabs  ul  li.nav-tabs ul li.selected {
+    background: #666;
+}
+
+form.tabs  ul  li.nav-tabs ul li.selected a.error span {
+    color: #FFF000;
+}
+
+form.tabs  ul  li.nav-tabs ul li.selected a span {
+    color: #DDD;
+}
+
+form .text  label {
+   width: auto;
+   display: block;
+   margin: 0 0 10px 0;
+   font-weight: bold;
+   float: none;
+}
+form .text  select, form .text  input {
+    width: auto;
+    display: inline
+}
+
+form.tabs ul {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+form.tabs  ul li {float: right;}
+
+form.tabs  ul  li.nav-tabs {display: none!important}
+
+.mapa { 
+	/*width: 550px;
+	height: 350px;
+	border: 3px solid #ccc;;
+        float: right;
+        margin-right: 0px;
+        margin-top:110px;*/
+        width: 400px;
+	height: 350px;
+	border: 3px solid #ccc;;
+        position: absolute;
+        right: 20px;
+        top:110px;
+}  

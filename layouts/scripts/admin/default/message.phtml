@@ -1,0 +1,30 @@
+<?php echo $this->doctype() ?>
+<html lang="pt_BR">
+    <!-- backend message -->
+    <head>
+        <meta name="robots" content="noindex">
+        <meta name="author" content="DB9 - Tecnologia de Dados">
+        <meta name="description" content="Software desenvolvido por Skysearch em parceria com a DB9 Tecnologia de Dados">
+        <?php
+        echo $this->headMeta();
+        echo $this->headTitle();
+        echo $this->headLink();
+        echo $this->headStyle();
+        echo $this->headScript();
+        ?>
+    </head>
+    <body>
+        <div class="container">
+            <div class="top">
+                <h1 class="logo"><span>eRapido</span></h1>
+                <?php echo $this->action('box-user','layout','admin'); ?>    
+            </div>
+            
+            <div id="content" class="message">
+            <?php echo $this->layout()->content; ?>
+            </div>    
+
+        </div>
+        <?php echo $this->inlineScript(); ?>
+    </body>
+</html>

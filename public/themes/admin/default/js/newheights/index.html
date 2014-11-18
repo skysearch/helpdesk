@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>jQuery NewHeights Plugin Demos</title>
+<!-- Include jQuery--><script src="http://code.jquery.com/jquery.js"></script><!-- Include the NewHeights plugin--><script src="jquery.newheights.js"></script><!-- script(src='https://raw.github.com/MichaelJCole/newheights/master/jquery.newheights.js')--><!-- Use the plugin--><script type="text/javascript">$(document).ready(function () {
+
+  // number or default: Update every 500ms
+  $('#default span').newHeights(500);
+  // $('#default li').newHeights(); // same
+  
+  // resize: Update 100ms after browser resize is complete
+  $('#resize span').newHeights('resize');
+  
+  // once: Update just once.  On documentReady.  Refresh to resize.
+  $('#once span').newHeights('once');
+  
+})
+</script><!-- Style the examples-->
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.example {
+margin: 1%;
+background: #aaaaaa;
+}
+span {
+display: inline-block;
+vertical-align: top;
+margin: 1%;
+width: 29%;
+padding: 1%;
+background: #dddddd;
+}
+</style>
+<!-- Style this document-->
+<style type="text/css">
+body {
+font-family: Verdana;
+font-size: 13px;
+background: #eee;
+}
+h1, h2, h3 {
+font-size: 22px;
+color: #464646;
+}
+h2 {
+font-size: 18px;
+}
+h3 {
+font-size: 14px;
+}
+a {
+color: #C2575B;
+text-decoration: none;
+}
+a:hover {
+color: #F76F76;
+}
+</style>
+</head>
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/layout/jQuery-Plugin-For-Adjusting-Element-Heights-On-Window-Resize-NewHeights.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<h1 style="margin-top:150px;">jQuery NewHeights Plugin Demos</h1>
+<p>jQuery plugin, for responsive pages, to set tags to same height.  Happens during/after browser resize.</p>
+<h2>Usage:</h2>
+<pre><code>$(selector).newHeights(refresh = 500)
+
+selector = any jQuery selector or elements you want to be the same height
+
+refresh = number (ms) for timer to continually resize - looks better
+        OR &#39;resize&#39; only after browser resize
+        OR &#39;once&#39; to resize only once</code></pre>
+<h2>What it does:</h2>
+<pre><code>1) Selects set of all elements that match `selector`
+2) Calculates max_height of all elements in set
+3) Sets height of all elements in set to max_height
+4) Refreshes based on `refresh` parameter.</code></pre>
+<h2>Example syntax:</h2>
+<p>Coffeescript:</p>
+<pre><code># Set all h3&#39;s in list to same height.  Refresh every 500ms
+$(&#39;#home .fancyBoxes .list .item h3&#39;).newHeights()</code></pre>
+<p>Javascript:</p>
+<pre><code>// Set all .preface tags in list to same height on browser resize
+$(&#39;#home .fancyBoxes .list .item .preface&#39;).newHeights(&#39;resize&#39;)</code></pre>
+<p>See below or <a href="http://htmlpreview.github.io/?https://github.com/MichaelJCole/newheights/blob/master/example.html">example.html</a> for examples.</p>
+<h2>Inline examples:</h2>
+<p>Resize your browser to see the plugin resize the examples below.&nbsp;<a href="https://github.com/MichaelJCole/newheights/blob/master/example.html">View source</a> to see the code and examples.</p>
+<h3>$('#default span').newHeights(500): Update every 500ms</h3>
+<div id="default" class="example"><span>Long content.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi facilisis nibh lacus, et convallis sem blandit commodo.</span><span>Medium Content. Lorem ipsum dolor sit amet.</span><span>Short content.</span></div>
+<h3>$('#resize span').newHeights('resize'): Update after browser resize is complete</h3>
+<div id="resize" class="example"><span>Long content.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi facilisis nibh lacus, et convallis sem blandit commodo.</span><span>Medium Content. Lorem ipsum dolor sit amet.</span><span>Short content.</span></div>
+<h3>$('#once span').newHeights('once'): Update just once.</h3>
+<p>Refresh to resize on ready() or&nbsp;
+<input type="button" value="click here" onclick="$('#once span').newHeights('once');">
+</p>
+<div id="once" class="example"><span>Long content.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi facilisis nibh lacus, et convallis sem blandit commodo.</span><span>Medium Content. Lorem ipsum dolor sit amet.</span><span>Short content.</span></div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

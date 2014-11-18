@@ -1,0 +1,7 @@
+<div class="user-box">
+    <div class="dados">
+    <p class="user"><?php echo $this->escape($this->user['info']['name']); ?></p>
+    <p class="alterar-senha"><a href="<?php echo $this->url(array('action'=>'alterar-senha','controller'=>'user','module'=>'admin'),null,true);?>">Alterar senha</a> | <a href="<?php echo $this->url(array('action'=>'logout','controller'=>'auth','module'=>'admin'));?>">Sair</a></p>
+    </div>
+    
+</div>

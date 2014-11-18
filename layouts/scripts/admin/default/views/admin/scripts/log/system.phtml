@@ -1,0 +1,45 @@
+<?php echo $this->form; ?>
+<style type="text/css">
+<!--
+    h3 {font-weight: bold; font-size: 11pt; margin-bottom: 4mm}
+    table {width: 100%}
+-->
+</style>
+<div class="relatorio-body">
+<?php
+if(!is_null($this->list)) { 
+?>
+<table cellpadding="0" cellspacing="0" border="0">
+    <thead>
+        <tr>
+            <th>Level</th>
+            <th>Data/Hora</th>
+            <th>User</th>
+            <th>Request</th>
+            <th>IP</th>
+            <th>Event</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <?php
+        foreach ($this->list as $row){
+        ?>
+        <tr>
+            <td><?php echo $this->escape($row['level']);?></td>          
+            <td><a href="<?php echo $this->url(array('action'=>'detalhe','controller'=>'log','module'=>'admin','id'=>$this->escape($row['log_id']))); ?>"><?php echo $row->created->format('d/m/Y H:i:s');?></a></td>            
+            <td><?php echo $this->escape($row['user_name']);?></td>
+            <td><?php echo $this->escape($row['request']);?></td>
+            <td><?php echo $this->escape($row['ip']);?></td>
+            <td><?php echo $this->escape($row['event']);?></td>
+        </tr>
+        <?php 
+        }
+        ?>
+    </tbody>
+
+</table>
+<?php
+} 
+?>
+</div>

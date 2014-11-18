@@ -1,0 +1,29 @@
+<?php echo $this->doctype() ?>
+<html lang="pt_BR">
+    <!-- backend empty -->
+    <head>
+        <meta name="robots" content="noindex">
+        <meta name="author" content="DB9 - Tecnologia de Dados">
+        <meta name="description" content="Software desenvolvido por Skysearch em parceria com a DB9 Tecnologia de Dados">
+        <?php
+        echo $this->placeholder('base');
+        echo $this->headMeta();
+        echo $this->headTitle();
+        echo $this->headLink();
+        echo $this->headStyle();
+        echo $this->headScript();
+        ?>
+        <link href="<?php echo $this->skin; ?>/css/1024.css" media="screen and (max-width: 1390px)" rel="stylesheet" type="text/css">
+        <!--[if IE]>
+            <link href="<?php echo $this->skin; ?>/css/ie.css" media="screen" rel="stylesheet" type="text/css">
+        <![endif]-->   
+    </head>
+    <body>
+        <div class="container">
+            <div id="content" class="system">
+                <?php echo $this->layout()->content; ?>
+            </div>
+        </div>
+        <?php echo $this->inlineScript(); ?>
+    </body>
+</html>

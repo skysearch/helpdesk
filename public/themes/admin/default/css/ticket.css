@@ -1,0 +1,473 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13/03/2014, 17:21:50
+    Author     : mac1
+*/
+form {
+    display: block
+}
+h2 {
+    margin-bottom: 15px
+}
+#ticketform fieldset {
+    padding: 15px
+}
+#ticketform ul > li {
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 0px;
+    margin-bottom: 15px
+}
+#ticketform ul > li.button {
+    border-bottom:0
+}
+#ticketform ul > li > fieldset {
+    margin-bottom: 0px;
+}
+#fieldset-DataOperador legend {
+    width: 100%;
+    display: block;
+    margin: 10px 0 15px 0;
+    padding: 0;
+    font-size: 13px
+}
+#fieldset-DataOperador li {
+    float: left;
+    display: inline-block;
+    margin-right: 35px;
+}
+#fieldset-DataOperador li label {
+    display: block;
+    margin: 0 0 8px 0;
+    width: 70px
+}
+#fieldset-DataOperador li input {
+    display: block;
+    float: none;
+    width: 150px
+}
+#fieldset-DataOperador li select { 
+    width: 180px
+}
+#fieldset-DataTicket legend {
+    width: 100%;
+    display: block;
+    margin: 10px 0 15px 0;
+    padding: 0;
+    font-size: 13px
+}
+#fieldset-DataTicket li {
+    margin-right: 15px;
+}
+#fieldset-DataTicket li label {
+    display: block;
+    float: none;
+    margin: 0 0 8px 0
+}
+#fieldset-DataTicket li input {
+    display: block;
+    float: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+#fieldset-DataTicket li textarea {
+    display: block;
+    float: none;
+    width: 100%;
+    height: 150px;
+    box-sizing: border-box;
+}
+#fieldset-DataTicket li.arquivo {
+    width: 200px;
+}
+
+#ticketform ul > li.button button, #andamentoform  button {
+    -moz-transition-duration: 0.3s;
+    -moz-transition-property: border-color;
+    background-clip: padding-box;
+    background-color: #428BCA;
+    background-image: -moz-linear-gradient(#428BCA, #357EBD);
+    border: 1px solid #357EBD;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font: 13px/17px Tahoma,Geneva,sans-serif;
+    margin: 0 10px 0 0;
+    padding: 4px 10px 5px;
+    text-align: left;
+    text-shadow: 0 0 0 transparent, 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+#ticketform ul > li.button button i, #andamentoform  button i {
+    margin-right: 0px;
+    color: #FFF;
+    font-size: 16px
+}
+#andamentoform li.arquivo label, 
+#ticketform li.arquivo label {
+    float: left;
+    width: auto;
+    font-size: 16px;
+    margin-right: 8px
+}
+#andamentoform li.arquivo label i, 
+#ticketform li.arquivo label i {
+    font-size: 16px;
+}
+.data-table {
+    width: 100% !important;
+    margin-bottom: 35px
+}
+.data-table th { 
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+    padding: 10px 5px;
+}
+.data-table td, .data-table th {
+    font-size: 12px;
+}
+.data-table td {
+    padding: 5px;
+    border-bottom: 1px solid #CCC;
+    /*border-right: 1px solid #CCC;*/
+}
+.data-table tbody {
+    /*border-left: 1px solid #CCC;*/
+}
+.data-table tbody tr:hover td {
+    background: #53aae2;
+    color: #fff;
+    border-bottom: 1px solid #357EBD;
+    border-top: 1px solid #357EBD;
+}
+.data-table tbody tr td a {
+    color: #357EBD;
+}
+.data-table tfoot tr td a {
+    color: #357EBD;
+}
+
+.data-table tbody tr:hover td a {
+    color: #fff
+}
+.data-table tbody tr th i, .data-table tbody tr td i {
+    padding-right: 5px
+}
+
+a.new[role='button'] {
+    -moz-transition-duration: 0.3s;
+    -moz-transition-property: border-color;
+    background-clip: padding-box;
+    background-color: #5CB85C;
+    background-image: -moz-linear-gradient(#5CB85C, #4CAE4C);
+    border: 1px solid #4CAE4C;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font: 13px/17px Tahoma,Geneva,sans-serif;
+    margin: 0 10px 0 0;
+    padding: 4px 10px 5px;
+    text-align: left;
+    text-shadow: 0 0 0 transparent, 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+a.finalizar {
+    -moz-transition-duration: 0.3s;
+    -moz-transition-property: border-color;
+    background-clip: padding-box;
+    background-color: #D9534F;
+    background-image: -moz-linear-gradient(#D9534F, #BF3935);
+    border: 1px solid #BF3935;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font: 13px/17px Tahoma,Geneva,sans-serif;
+    margin: 0 -15px 0 0;
+    padding: 4px 10px 5px;
+    text-align: left;
+    text-shadow: 0 0 0 transparent, 1px 1px 0 rgba(0, 0, 0, 0.1);
+    float: right;
+}
+a.reabrir {
+    -moz-transition-duration: 0.3s;
+    -moz-transition-property: border-color;
+    background-clip: padding-box;
+    background-color: #D9534F;
+    background-image: -moz-linear-gradient(#D9534F, #BF3935);
+    border: 1px solid #BF3935;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font: 13px/17px Tahoma,Geneva,sans-serif;
+    margin: 0 10px 0 0;
+    padding: 4px 10px 5px;
+    text-align: left;
+    text-shadow: 0 0 0 transparent, 1px 1px 0 rgba(0, 0, 0, 0.1);
+    float: right;
+}
+a.list[role='button'] {
+    -moz-transition-duration: 0.3s;
+    -moz-transition-property: border-color;
+    background-clip: padding-box;
+    background-color: #428BCA;
+    background-image: -moz-linear-gradient(#428BCA, #357EBD);
+    border: 1px solid #357EBD;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font: 13px/17px Tahoma,Geneva,sans-serif;
+    margin: 0 10px 0 0;
+    padding: 4px 10px 5px;
+    text-align: left;
+    text-shadow: 0 0 0 transparent, 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+a[role='button'] i {
+    padding-right: 8px 
+}
+
+#andamentoform textarea {
+    height: 100px !important;
+}
+
+.box-ticket {
+    position: relative;
+    /*width: 84.5%;*/
+    /*background: #EEEEEE;
+    border: 1px solid #DDDDDD;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 25px;
+    */
+   margin-bottom: 35px;
+   padding: 20px;     
+   border-bottom: 2px solid #EEEEEE;  
+   background-color: #FDF7F7;
+   border-color: #D9534F;    
+}
+.box-ticket-detalhe {
+    /*width: 84.5%;*/
+    margin-top: -35px;
+    padding: 10px 20px;
+    font-size: 13px;
+    overflow: hidden;
+    border-bottom: 2px solid #EEEEEE; 
+    border-color: #D9534F; 
+    margin-bottom: 35px
+}
+.box-ticket-detalhe li {
+    float: left;
+    margin-right: 25px
+}
+.box-ticket-detalhe li span {
+    font-weight: bold
+}
+.box-ticket-button {
+    /*width: 84.5%;*/
+    overflow: hidden;
+    padding: 0px 20px;
+    /*width: 84.5%;*/
+    margin-bottom: 5px;
+    margin-top: -23px;
+    
+}
+.box-ticket h2 {
+    color: #D9534F;
+    font-size: 18px;
+    font-weight: bold;
+}
+.box-ticket p {
+    font-size: 14px;
+    font-weight: normal;
+    color: #333333
+}
+.box-ticket p.date {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #BF3935;
+    font-size: 13px
+}
+.box-ticket p.date i {
+    margin-left: 15px
+}
+
+#andamentoform {
+    margin-bottom: 35px
+}
+#andamentoform li.button, #andamentoform li.arquivo {
+    display: inline-block
+}
+#andamentoform li.button {
+    float: right;
+    margin-right: 0
+}
+#andamentoform li #fieldset-DataTicket {
+    margin-bottom: 0
+}
+
+.box-andamento {
+    /*width: 84.5%;*/
+    position: relative;
+    border-left: 3px solid #EEEEEE;    
+    margin: 20px 0;
+    padding: 20px;
+}
+.box-andamento h3 { 
+    font-weight: normal;
+    font-size: 14px;
+}
+.box-andamento p {
+    font-size: 14px;
+    color: #333333
+}
+
+/* Outros  */
+.box-andamento.outro {
+    background-color: #FCF8F2;    
+    border-right: 3px solid #F0AD4E;
+    border-left: 0;
+}
+.box-andamento.outro h3 {
+    color: #F0AD4E;
+    text-align: right
+}
+.box-andamento.outro p {
+    font-style: italic
+}
+.box-andamento.outro p.date {
+    left: 10px;
+    right: auto;
+    font-style: normal
+}
+
+/* Operadores  */
+.box-andamento.operador {
+    background-color: #e3f3ff;
+    border-right: 3px solid #2b83c0; 
+    border-left: 0;
+}
+.box-andamento.operador h3 {
+    color: #2b83c0;
+    text-align: right
+}
+.box-andamento.operador p {
+    font-style: italic
+}
+.box-andamento.operador p.date {
+    left: 10px;
+    right: auto;
+    font-style: normal
+}
+
+/* Clientes  */
+.box-andamento.cliente {
+    background-color: #F4F8FA;
+    border-color: #5BC0DE;
+}
+.box-andamento.cliente h3 {
+    color: #5BC0DE;
+}
+
+
+/* Chamado Finalizado  */
+.box-andamento.chamado-finalizado {
+    background-color: #fdf7f7;
+    border-top: 0px solid #d9534f;
+    border-bottom: 0px solid #d9534f;
+    border-left: 0;
+    border-right: 0;
+    padding: 10px;
+}
+.box-andamento.chamado-finalizado h3 {
+    color: #d9534f;
+    text-align: center
+}
+.box-andamento.chamado-finalizado p {
+    font-style: normal;
+    text-align: center
+}
+.box-andamento.chamado-finalizado p.date {
+    left: 10px;
+    right: auto;
+    font-style: normal
+}
+
+/* Chamado Reaberto  */
+.box-andamento.chamado-reaberto {
+    background-color: #f4f8fa;
+    border-top: 0px solid #5BC0DE;
+    border-bottom: 0px solid #5BC0DE;
+    border-left: 0;
+    border-right: 0;
+    padding: 10px;
+}
+.box-andamento.chamado-reaberto h3 {
+    color: #5BC0DE;
+    text-align: center
+}
+.box-andamento.chamado-reaberto p {
+    font-style: normal;
+    text-align: center
+}
+.box-andamento.chamado-reaberto p.date {
+    left: 10px;
+    right: auto;
+    font-style: normal
+}
+
+
+.box-andamento p.date {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #7F7F7F;
+    font-size: 11px
+}
+a.anexo {
+    display: block;
+    font-size: 13px;
+    margin-top: 15px;
+    color: #357EBD
+}
+
+p.departamento {
+    margin-top: -10px;
+    margin-bottom: 15px
+}

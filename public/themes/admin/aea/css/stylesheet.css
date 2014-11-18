@@ -1,0 +1,14 @@
+/* 
+    Document   : stylesheet
+    Created on : 26/02/2013, 16:03:17
+    Author     : mac1
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+form input[type='text'] {
+    text-transform: uppercase;
+}
+form input[role='mail'] {
+    text-transform: lowercase;
+}

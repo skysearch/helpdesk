@@ -1,0 +1,99 @@
+<?php
+echo $this->partial('ticket/list/_buttons.phtml');
+?>
+<?php echo $this->form; ?>
+<?php
+if (count($this->tikets) > 0) {
+    ?>
+    <h2>Chamados</h2>
+    
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Assunto</th>
+                <th width="6%">Prioridade</th>
+                <th width="10%">Solicitante</th>
+                <th width="10%">Cliente</th>
+                <th width="10%">Operador</th>
+                <th width="11%">Data da Solicitação</th>
+                <th width="11%">Prazo</th>
+                <th width="8%" colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($this->tikets as $row) {
+                ?>
+                <tr>
+                    <td>
+                        <?php
+                        if ($row['status'] == 'novo-chamado') {
+                            echo '<i class="fa fa-envelope"></i> ';
+                        } else if ($row['status'] == 'em-andamento') {
+                            echo '<i class="fa fa-envelope-o"></i>';
+                        }
+                        ?>
+                        <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                    </td>
+                    <td>
+                        <?php
+                        if ($row['prioridade'] == 'urgente') {
+                            echo '<i class="fa fa-exclamation-triangle"></i>';
+                        } else if ($row['prioridade'] == 'alta') {
+                            echo '<i class="fa fa-exclamation-circle"></i>';
+                        } else if ($row['prioridade'] == 'normal') {
+                            echo '<i class="fa fa-sun-o"></i>';
+                        } else if ($row['prioridade'] == 'baixa') {
+                            echo '<i class="fa fa-circle-o"></i>';
+                        }
+                        echo $this->escape($this->translate($row['prioridade']));
+                        ?>
+                    </td>
+                    <td><?php echo $this->escape($row['cliente_nome']); ?></td>
+                    <td><?php echo $this->translate($row['cliente']); ?></td>
+                    <td><?php echo $this->escape($row['operador_nome']); ?></td>
+                    <td><?php echo $row['created']->format('d/m/Y H:i'); ?></td>
+                    <td><?php echo $row['prazo']->format('d/m/Y H:i'); ?></td>
+                    <td><a href="<?php echo $this->url(array('action' => 'editar', 'id' => $row['ticket_id'])) ?>"><i class="fa fa-pencil"></i> Editar</a></td>
+                    <td><a onclick="$.ticket_list_apagar(<?php echo $row['ticket_id']; ?>)"  href="javascript:void(0);<?php $this->url(array('action' => 'apagar', 'id' => $row['ticket_id'])) ?>"><i class="fa fa-trash-o"></i> Apagar</a></td>
+                </tr>
+                <?php
+            }
+            ?>
+        </tbody>
+    </table>
+    <?php
+}
+?>   
+        
+<script type="text/javascript">
+    $(function() {
+        $.ticket_list_apagar = function(id) {
+            id_reg = id;
+            $('#ticket_list-apagar-confirm').dialog('open');
+            return false;
+        }
+        $('#ticket_list-apagar-confirm').dialog({
+            'autoOpen': false,
+            'resizable': false,
+            'height': '150',
+            'width': '350',
+            'modal': true,
+            'question': 'Apagar registro?',
+            'description': 'Esse item será apagado. Você tem certeza que deseja continuar?',
+            'buttons': {
+                'Cancelar': function() {
+                    $(this).dialog('close');
+                }, 'Apagar registro': function() {
+                    document.location = '<?php echo $this->url(array('action' => 'apagar', 'controller' => 'ticket', 'module' => 'helpdesk')); ?>/id/' + id_reg;
+                    $(this).dialog('close');
+                }
+            }
+        });
+    });
+</script>
+<div id="ticket_list-apagar-confirm" title="Apagar registro?">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Esse ticket será apagado. Você tem certeza que deseja continuar?
+    </p>
+</div>

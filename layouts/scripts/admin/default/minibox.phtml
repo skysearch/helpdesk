@@ -1,0 +1,46 @@
+<?php echo $this->doctype() ?>
+<html lang="pt_BR">
+    <!-- backend empty -->
+    <head>
+        <meta name="robots" content="noindex">
+        <meta name="author" content="DB9 - Tecnologia de Dados">
+        <meta name="description" content="Software desenvolvido por Skysearch em parceria com a DB9 Tecnologia de Dados">
+        <?php
+        echo $this->placeholder('base');
+        echo $this->headMeta();
+        echo $this->headTitle();
+        echo $this->headLink();
+        echo $this->headStyle();
+        echo $this->headScript();
+        ?>
+        <link href="<?php echo $this->skin; ?>/css/1024.css" media="screen and (max-width: 1390px)" rel="stylesheet" type="text/css">
+        <!--[if IE]>
+            <link href="<?php echo $this->skin; ?>/css/ie.css" media="screen" rel="stylesheet" type="text/css">
+        <![endif]--> 
+        <style type="text/css" media="screen">
+            html, body {height: auto;}
+            body {background: #FFF}
+            #auth-user {margin: 0 auto 35px; height: auto}
+            #auth-user, 
+            #auth-user fieldset li {width: 240px}
+            #fieldset-DataAuth .button {text-align: right; width: 240px}
+            #fieldset-DataAuth .button {margin: 0}
+            #fieldset-DataAuth ul.errors, 
+            #fieldset-DataAuth label.error {text-align: right; width: 240px; margin-left: 0}
+            #auth-user fieldset {margin: 0}
+            #auth-user label {width: auto; display: block; float: none}
+            #auth-user input {width: 210px; display: block}
+            #auth-user #fieldset-DataAuth li.cadastre_se, 
+            #fieldset-DataAuth li.lembrar {width: 80px;}
+        </style>
+        <script type="text/javascript">
+            $(function(){
+                $('a,form').attr('target','_blank')
+            });
+        </script>
+    </head>
+    <body>
+        <?php echo $this->layout()->content; ?>
+        <?php echo $this->inlineScript(); ?>
+    </body>
+</html>

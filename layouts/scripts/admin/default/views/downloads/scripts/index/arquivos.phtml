@@ -1,0 +1,77 @@
+<div class="buttons-right">
+    <a href="<?php echo $this->url(array('action' => 'listar','controller'=>'index','module'=>'downloads'),null,true); ?>" role="button" class="list"><i class="fa fa-folder-open-o"></i> Lista de Pastas</a>
+    <?php if($this->departamento['name']<>'cliente' && $this->departamento['name'] <> 'samsung') {?>
+    <a href="<?php echo $this->url(array('action' => 'adicionar','controller'=>'index','module'=>'downloads'),null,true); ?>" role="button" class="new"><i class="fa fa-folder-o"></i> Nova Pasta</a>
+    <?php } ?>
+</div>
+<div class="box-ticket">
+    <h2><?php echo $this->escape($this->pasta['nome']); ?></h2>
+    <p><?php echo nl2br($this->escape($this->pasta['descricao'])); ?></p>
+</div>
+<div class="box-ticket-detalhe">
+    <ul>
+        <li><span>Data de Criação:</span> <?php echo $this->pasta['created']->format('d/m/Y H:i'); ?></li>
+        <li><span>Ultima Alteração:</span> <?php echo $this->pasta['modified']->format('d/m/Y H:i'); ?></li>
+    </ul>
+</div>
+
+<?php echo $this->form; ?>
+
+
+<?php
+if (count($this->arquivo) > 0) {
+    foreach ($this->arquivo as $row) {
+        $css = 'box-arquivos ';
+        ?>
+        <div class="<?php echo $css; ?>">
+            <p class="date">Publicado em: <?php echo $row['modified']->format('d/m/Y H:i'); ?></p>
+            <h3 class="nome"><?php echo $this->escape($row['nome']); ?></h3>
+            <p><?php echo nl2br($this->escape($row['descricao'])); ?></p>
+            <?php if (count($row['arquivo']) > 0) { ?>
+            <a class="anexo" href="<?php echo $this->baseUrl('uploads' . DS . 'docs' . DS . $this->pasta['pasta_id'] . DS . base64_decode($row['arquivo']['name'])); ?>" target="_blank">
+                <i class="fa fa-cloud-download"></i> <?php echo $this->escape(base64_decode($row['arquivo']['real_name'])); ?>
+            </a>
+                <?php
+            }
+            ?>
+            <?php if($this->departamento['name']<>'cliente' && $this->departamento['name'] <> 'samsung') {?>
+            <a class="action" onclick="$.ticket_list_apagar(<?php echo $row['arquivo_id']; ?>)"  href="javascript:void(0);<?php $this->url(array('action' => 'apagar-arquivo', 'id' => $row['arquivo_id'])) ?>">
+                <i class="fa fa-trash-o"></i>
+            </a>
+            <?php } ?>
+        </div>
+        <?php
+    }
+} ?>
+
+<script type="text/javascript">
+    $(function() {
+        $.ticket_list_apagar = function(id) {
+            id_reg = id;
+            $('#ticket_list-apagar-confirm').dialog('open');
+            return false;
+        }
+        $('#ticket_list-apagar-confirm').dialog({
+            'autoOpen': false,
+            'resizable': false,
+            'height': '150',
+            'width': '350',
+            'modal': true,
+            'question': 'Apagar registro?',
+            'description': 'Esse item será apagado. Você tem certeza que deseja continuar?',
+            'buttons': {
+                'Cancelar': function() {
+                    $(this).dialog('close');
+                }, 'Apagar registro': function() {
+                    document.location = '<?php echo $this->url(array('action' => 'apagar-arquivo', 'controller' => 'index', 'module' => 'downloads')); ?>/id/' + id_reg;
+                    $(this).dialog('close');
+                }
+            }
+        });
+    });
+</script>
+<div id="ticket_list-apagar-confirm" title="Apagar registro?">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Esse arquivo será apagado. Você tem certeza que deseja continuar?
+    </p>
+</div>

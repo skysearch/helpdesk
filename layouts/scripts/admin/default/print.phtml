@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta name="robots" content="noindex">
+        <meta name="author" content="DB9 - Tecnologia de Dados">
+        <meta name="description" content="Software desenvolvido por Skysearch em parceria com a DB9 Tecnologia de Dados">
+        <?php
+        echo $this->headMeta();
+        echo $this->headTitle();
+        ?>
+        
+    </head>
+    <body>
+        <h1><?php echo $this->escape($this->title); ?></h1>
+        <?php $this->toPdf($this->layout()->content); ?>
+    </body>
+</html>

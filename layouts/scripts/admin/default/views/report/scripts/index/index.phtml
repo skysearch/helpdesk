@@ -1,0 +1,24 @@
+<iframe id="asmreport" src="<?php echo $this->url; ?>" style=";margin: 0 -20px;position: relative; top: -19px; left: 0;width: 102.5%; box-sizing: border-box; display: none; overflow: visible"></iframe>
+<script type="text/javascript">
+$(function(){
+    $('html,body').css('height','100%');
+    $('body').css('overflow-y','hidden');
+    
+    $('#content > h1, #content > .breadcrumbs').remove();
+    
+    var janela = $(window).height();
+    var pagina = $(document).height();
+    var altura = pagina-105;
+
+    
+    $('#asmreport').css({height:altura+'px',display:'block'});
+});
+$(window).on('resize',function(){
+	var n_janela = $(window).height();
+	var f_janela = janela-n_janela;
+    var n_altura = pagina-f_janela;
+   
+    $('#asmreport').css({height:altura+'px',display:'block',overflow:'auto'});
+});
+</script>
+

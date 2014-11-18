@@ -1,0 +1,22 @@
+ul li.nav-tabs {
+    /*display: none !important;*/
+}
+form ul li p.hint {
+    display: inline;
+    width: 100%
+}
+form.tabs fieldset {
+    overflow: hidden;
+    clear: both;
+}
+form.tabs li.tab {
+    display: block;
+}
+/*form.tabs fieldset legend {
+    display: block;
+    clear: both;
+    font-size: 13px;
+    width: 100%;
+    padding-bottom: 5px;
+    border-bottom: solid 1px #000;
+}*/

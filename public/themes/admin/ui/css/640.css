@@ -1,0 +1,52 @@
+/* 
+    Document   : 1024.css
+    Created on : 13/02/2013, 12:17:59
+    Author     : mac1
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+div.top {display: none}
+ul.navigation ul { 
+    width: 130px; 
+    display:none; 
+    position: relative; 
+    top: 0; 
+    left: 0; 
+}
+ul.navigation li:hover > ul { 
+    display: block; 
+    width: 135px;
+    
+}
+ul.navigation li:hover > ul > li { 
+    background: #666
+}
+h1 span {
+    font-size: 20px;
+}
+ul.navigation li {
+    font-size: 13px;
+    font-weight: normal;
+    padding: 5px 9px;
+    width: 135px;
+}
+ul.navigation > li {
+    background: #232323;
+}
+ul.navigation li ul {
+    margin: -4px -9px;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 135px;
+    
+}
+ul.navigation li ul li {
+    margin: 0;
+    clear: both;
+    padding: 5px 9px;
+}
+.breadcrumbs {
+    display: none
+}

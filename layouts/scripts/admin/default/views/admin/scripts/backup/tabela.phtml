@@ -1,0 +1,43 @@
+<style type="text/css">
+<!--
+    h3 {font-weight: bold; font-size: 11pt; margin-bottom: 4mm}
+    table {width: 100%}
+    table th.tamanho {width:10%}
+    table th.data {width:10%}
+-->
+</style>
+<div class="relatorio-body">
+    
+    <a href="<?php echo $this->url(array('start'=>1));?>" class="button" role="button" >Fazer backup</a>
+    
+<?php
+if(count($this->list)>0) { 
+?>
+<table cellpadding="0" cellspacing="0" border="0">
+    <thead>
+        <tr>
+            <th class="nome">Nome</th>
+            <th class="tamanho">Tamanho</th>
+            <th class="data">Data/Hora</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <?php
+        foreach ($this->list as $row){
+        ?>
+        <tr>
+            <td><?php echo $this->escape($row['name']);?></td>
+            <td><?php echo $this->escape($this->sizeFormatter($row['info']['size']));?></td>
+            <td><?php echo $this->escape(date('d/m/Y H:i:s',$row['info']['ctime']));?></td>
+        </tr>
+        <?php 
+        }
+        ?>
+    </tbody>
+
+</table>
+<?php
+} 
+?>
+</div>

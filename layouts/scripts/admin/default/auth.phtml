@@ -1,0 +1,29 @@
+<?php echo $this->doctype(); ?>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+    <!-- backend auth -->
+    <head>
+        <meta name="robots" content="noindex">
+        <meta name="author" content="DB9 - Tecnologia de Dados">
+        <meta name="description" content="Software desenvolvido por Skysearch em parceria com a DB9 Tecnologia de Dados">
+        <?php
+        echo $this->headMeta();
+        echo $this->headTitle();
+        echo $this->headLink();
+        echo $this->headStyle();
+        echo $this->headScript();
+        ?>
+    </head>
+    <body>
+        <div class="top">
+            <h1 class="logo"><span>skySearch</span></h1>  
+        </div>
+        <?php echo $this->messages; ?>
+        <ul id="noscript" class="message error">
+            <li>Seu JavaScript parece estar desabilitado, o sistema não funcionará corretamente.</li>
+        </ul>
+        <div id="content">
+            <?php echo $this->layout()->content; ?>
+        </div>
+        <?php echo $this->inlineScript(); ?>
+    </body>
+</html>
