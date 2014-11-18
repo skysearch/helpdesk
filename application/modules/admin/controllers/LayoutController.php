@@ -291,7 +291,7 @@ class Admin_LayoutController extends Zend_Controller_Action {
         );
 
 
-        if ($user['role']['name'] == 'administrador') {
+        if ($user['role']['name'] == 'administrador' || $user['role']['name'] == 'asm') {
             $menu = array(
                 'module' => array(
                     'label' => 'Gerenciamento',

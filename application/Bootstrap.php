@@ -10,6 +10,19 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
     protected function _initAutoload() {
 
         $autoloader = Zend_Loader_Autoloader::getInstance();
+
+        require_once 'htmlpurifier' . DS . 'HTMLPurifier.auto.php';
+        require_once 'htmlpurifier' . DS . 'HTMLPurifier.func.php';
+
+        
+        $configs = $this->getOptions();
+        
+        
+        
+        
+        require_once 'PHPExcel' . '/' . 'PHPExcel.php';
+
+
         $modules = Sky_Module_Loader::getInstance()->getModuleNames();
 
         foreach ($modules as $module) {

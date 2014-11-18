@@ -10,7 +10,6 @@ if(count($this->tikets_novos)>0) {
 <table class="data-table">
     <thead>
         <tr>
-            <th>Solicitação</th>
             <th>Assunto</th>
             <th width="6%">Prioridade</th>
             <th width="10%">Solicitante</th>
@@ -24,7 +23,6 @@ if(count($this->tikets_novos)>0) {
         foreach($this->tikets_novos as $row) {
         ?>
         <tr>
-            <td><?php echo $this->escape($row['descricao']); ?></td>
             <td>
                 <?php 
                 if($row['status']=='novo-chamado') { 
@@ -178,7 +176,7 @@ if (count($this->tikets_finalizados) > 0) {
             <td><?php echo $this->escape($row['operador_nome']);?></td>
             <td><?php echo $row['created']->format('d/m/Y H:i');?></td>
             <td><?php echo $row['prazo']->format('d/m/Y H:i');?></td>
-            <td><?php echo ($row['modified'] instanceof DateTime)?$row['modified']->format('d/m/Y H:i'):$row['created']->format('d/m/Y H:i');?></td>
+            <td><?php echo $row['modified']->format('d/m/Y H:i');?></td>
         </tr>
         <?php
         }

@@ -10,7 +10,6 @@ if(count($this->tikets)>0) {
 <table class="data-table">
     <thead>
         <tr>
-            <th>Solicitação</th>
             <th>Assunto</th>
             <th width="10%">Cliente</th>
             <th width="10%">Operador</th>
@@ -23,7 +22,6 @@ if(count($this->tikets)>0) {
         foreach($this->tikets as $row) {
         ?>
         <tr>
-            <td><?php echo $this->escape($row['descricao']); ?></td>
             <td>
                 <?php 
                 if($row['status']=='novo-chamado') { 
