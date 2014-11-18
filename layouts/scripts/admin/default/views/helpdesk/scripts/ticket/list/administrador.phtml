@@ -9,7 +9,7 @@ if (count($this->tikets_novos) > 0) {
     <table class="data-table">
         <thead>
             <tr>
-                <th>Assunto</th>
+                <th>Solicitação</th>
                 <th width="6%">Prioridade</th>
                 <th width="10%">Solicitante</th>
                 <th width="10%">Cliente</th>
@@ -25,14 +25,10 @@ if (count($this->tikets_novos) > 0) {
                 ?>
                 <tr>
                     <td>
-                        <?php
-                        if ($row['status'] == 'novo-chamado') {
-                            echo '<i class="fa fa-envelope"></i> ';
-                        } else if ($row['status'] == 'em-andamento') {
-                            echo '<i class="fa fa-envelope-o"></i>';
-                        }
-                        ?>
-                        <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        <h4>
+                            <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        </h4>
+                        <?php echo $this->escape($row['descricao']); ?>
                     </td>
                     <td>
                         <?php
@@ -62,11 +58,11 @@ if (count($this->tikets_novos) > 0) {
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="9"><a class="listar-mais" href="<?php echo $this->url(array('action'=>'listar-mais','controller'=>'ticket','module'=>'helpdesk','status'=>'novo-chamado')); ?>"><i class="fa fa-tasks"></i> Listar mais</a></td>
+                <td colspan="9"><a class="listar-mais" href="<?php echo $this->url(array('action' => 'listar-mais', 'controller' => 'ticket', 'module' => 'helpdesk', 'status' => 'novo-chamado')); ?>"><i class="fa fa-tasks"></i> Listar mais</a></td>
             </tr>
         </tfoot>
     </table>
-    
+
     <?php
 }
 ?>
@@ -78,7 +74,7 @@ if (count($this->tikets) > 0) {
     <table class="data-table">
         <thead>
             <tr>
-                <th>Assunto</th>
+                <th>Solicitação</th>
                 <th width="6%">Prioridade</th>
                 <th width="10%">Solicitante</th>
                 <th width="10%">Cliente</th>
@@ -94,14 +90,16 @@ if (count($this->tikets) > 0) {
                 ?>
                 <tr>
                     <td>
-                        <?php
-                        if ($row['status'] == 'novo-chamado') {
-                            echo '<i class="fa fa-envelope"></i> ';
-                        } else if ($row['status'] == 'em-andamento') {
-                            echo '<i class="fa fa-envelope-o"></i>';
-                        }
-                        ?>
-                        <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        <h4><?php
+                            if ($row['status'] == 'novo-chamado') {
+                                echo '<i class="fa fa-envelope"></i> ';
+                            } else if ($row['status'] == 'em-andamento') {
+                                echo '<i class="fa fa-envelope-o"></i>';
+                            }
+                            ?>
+                            <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        </h4>
+                        <?php echo $this->escape($row['descricao']); ?>
                     </td>
                     <td>
                         <?php
@@ -131,7 +129,7 @@ if (count($this->tikets) > 0) {
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="9"><a class="listar-mais" href="<?php echo $this->url(array('action'=>'listar-mais','controller'=>'ticket','module'=>'helpdesk','status'=>'em-andamento')); ?>"><i class="fa fa-tasks"></i> Listar mais</a></td>
+                <td colspan="9"><a class="listar-mais" href="<?php echo $this->url(array('action' => 'listar-mais', 'controller' => 'ticket', 'module' => 'helpdesk', 'status' => 'em-andamento')); ?>"><i class="fa fa-tasks"></i> Listar mais</a></td>
             </tr>
         </tfoot>
     </table>
@@ -145,7 +143,7 @@ if (count($this->tikets_finalizados) > 0) {
     <table class="data-table">
         <thead>
             <tr>
-                <th>Assunto</th>
+                <th>Solicitação</th>
                 <th width="6%">Prioridade</th>
                 <th width="10%">Solicitante</th>
                 <th width="10%">Cliente</th>
@@ -161,7 +159,10 @@ if (count($this->tikets_finalizados) > 0) {
                 ?>
                 <tr>
                     <td>
-                        <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        <h4>
+                            <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        </h4>
+                        <?php echo $this->escape($row['descricao']); ?>
                     </td>
                     <td>
                         <?php
@@ -190,19 +191,19 @@ if (count($this->tikets_finalizados) > 0) {
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="9"><a class="listar-mais" href="<?php echo $this->url(array('action'=>'listar-mais','controller'=>'ticket','module'=>'helpdesk','status'=>'chamado-finalizado')); ?>"><i class="fa fa-tasks"></i> Listar mais</a></td>
+                <td colspan="9"><a class="listar-mais" href="<?php echo $this->url(array('action' => 'listar-mais', 'controller' => 'ticket', 'module' => 'helpdesk', 'status' => 'chamado-finalizado')); ?>"><i class="fa fa-tasks"></i> Listar mais</a></td>
             </tr>
         </tfoot>
     </table>
     <?php
 }
 ?>    
-    
-    
-    
+
+
+
 <script type="text/javascript">
-    $(function() {
-        $.ticket_list_apagar = function(id) {
+    $(function () {
+        $.ticket_list_apagar = function (id) {
             id_reg = id;
             $('#ticket_list-apagar-confirm').dialog('open');
             return false;
@@ -216,9 +217,9 @@ if (count($this->tikets_finalizados) > 0) {
             'question': 'Apagar registro?',
             'description': 'Esse item será apagado. Você tem certeza que deseja continuar?',
             'buttons': {
-                'Cancelar': function() {
+                'Cancelar': function () {
                     $(this).dialog('close');
-                }, 'Apagar registro': function() {
+                }, 'Apagar registro': function () {
                     document.location = '<?php echo $this->url(array('action' => 'apagar', 'controller' => 'ticket', 'module' => 'helpdesk')); ?>/id/' + id_reg;
                     $(this).dialog('close');
                 }

@@ -9,7 +9,7 @@ if (count($this->tikets_novos) > 0) {
     <table class="data-table">
         <thead>
             <tr>
-                <th>Assunto</th>
+                <th>Solicitação</th>
                 <th width="10%">Operador</th>
                 <th width="11%">Data da Solicitação</th>
                 <th width="11%">Prazo</th>
@@ -22,12 +22,16 @@ if (count($this->tikets_novos) > 0) {
                 ?>
                 <tr>
                     <td>
-                        <?php
-                        if ($row['status'] == 'novo-chamado') {
-                            echo '<i class="fa fa-envelope"></i> ';
-                        }
-                        ?>
-                        <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        <h4><?php
+                            if ($row['status'] == 'novo-chamado') {
+                                echo '<i class="fa fa-envelope"></i> ';
+                            } else if ($row['status'] == 'em-andamento') {
+                                echo '<i class="fa fa-envelope-o"></i>';
+                            }
+                            ?>
+                            <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        </h4>
+                        <?php echo $this->escape($row['descricao']); ?>
                     </td>
                     <td><?php echo $this->escape($row['operador_nome']); ?></td>
                     <td><?php echo $row['created']->format('d/m/Y H:i'); ?></td>
@@ -55,7 +59,7 @@ if (count($this->tikets) > 0) {
     <table class="data-table">
         <thead>
             <tr>
-                <th>Assunto</th>
+                <th>Solicitação</th>
                 <th width="10%">Operador</th>
                 <th width="11%">Data da Solicitação</th>
                 <th width="11%">Prazo</th>
@@ -67,14 +71,16 @@ if (count($this->tikets) > 0) {
                 ?>
                 <tr>
                     <td>
-                        <?php
-                        if ($row['status'] == 'novo-chamado') {
-                            echo '<i class="fa fa-envelope"></i> ';
-                        } else if ($row['status'] == 'em-andamento') {
-                            echo '<i class="fa fa-envelope-o"></i>';
-                        }
-                        ?>
-                        <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        <h4><?php
+                            if ($row['status'] == 'novo-chamado') {
+                                echo '<i class="fa fa-envelope"></i> ';
+                            } else if ($row['status'] == 'em-andamento') {
+                                echo '<i class="fa fa-envelope-o"></i>';
+                            }
+                            ?>
+                            <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        </h4>
+                        <?php echo $this->escape($row['descricao']); ?>
                     </td>
                     <td><?php echo $this->escape($row['operador_nome']); ?></td>
                     <td><?php echo $row['created']->format('d/m/Y H:i'); ?></td>
@@ -100,7 +106,7 @@ if (count($this->tikets_finalizados) > 0) {
     <table class="data-table">
         <thead>
             <tr>
-                <th>Assunto</th>
+                <th>Solicitação</th>
                 <th width="10%">Solicitante</th>
                 <th width="10%">Departamento</th>
                 <th width="10%">Operador</th>
@@ -115,14 +121,10 @@ if (count($this->tikets_finalizados) > 0) {
                 ?>
                 <tr>
                     <td>
-                        <?php
-                        if ($row['status'] == 'novo-chamado') {
-                            echo '<i class="fa fa-envelope"></i> ';
-                        } else if ($row['status'] == 'em-andamento') {
-                            echo '<i class="fa fa-envelope-o"></i>';
-                        }
-                        ?>
-                        <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        <h4>
+                            <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
+                        </h4>
+                        <?php echo $this->escape($row['descricao']); ?>
                     </td>
                     <td><?php echo $this->escape($row['cliente_nome']); ?></td>
                     <td><?php echo $this->escape($row['departamento']); ?></td>

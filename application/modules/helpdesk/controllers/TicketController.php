@@ -230,10 +230,10 @@ class Helpdesk_TicketController extends Zend_Controller_Action {
             $params['proprietario'] = $info['user']['user_id'];
             $render = 'cliente';
             
-        } else if ($role['name'] == 'samsung') {
+        } else if ($role['name'] == 'gerente') {
             $params['proprietario'] = $info['user']['user_id'];
             //$params['operador_id'] = $info['user']['user_id'];
-            $render = 'samsung';
+            $render = 'gerente';
             
         } else {
             if ($role['name'] == 'administrador') {
@@ -282,9 +282,9 @@ class Helpdesk_TicketController extends Zend_Controller_Action {
             $params['proprietario'] = $info['user']['user_id'];
             $render = 'cliente';
             
-        } else if ($role['name'] == 'samsung') {
+        } else if ($role['name'] == 'gerente') {
             $params['operador_id'] = $info['user']['user_id'];
-            $render = 'samsung';
+            $render = 'gerente';
             
         } else {
             if ($role['name'] == 'administrador') {

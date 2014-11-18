@@ -11,8 +11,8 @@ class Helpdesk_Forms_Ticket extends Sky_Form_Jquery_Form {
 
     const FORMS_OPERATOR_MASTER = 'administrador';
     const FORMS_OPERATOR_CLIENTE = 'cliente';
-    const FORMS_OPERATOR_SAMSUNG = 'samsung';
-    const FORMS_OPERATOR_ASM = 'asm';
+    const FORMS_OPERATOR_SAMSUNG = 'gerente';
+    const FORMS_OPERATOR_ASM = 'db9';
 
     public function __construct($options = null) {
 
