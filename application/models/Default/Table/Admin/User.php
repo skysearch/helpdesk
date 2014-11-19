@@ -43,7 +43,8 @@ class Application_Model_Default_Table_Admin_User extends Sky_Db_Table_Abstract {
         'created'  => array('type'=>'datetime'),
         'modified' => array('type'=>'datetime'),
         'password' => array('type'=>'sha1'),
-        'grupo'    => array('type'=>'array')
+        'grupo'    => array('type'=>'array'),
+        'username' => array('type'=>'slug')
     );
     
     protected $_autoDate = true;
