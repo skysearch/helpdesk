@@ -221,7 +221,7 @@ class Helpdesk_TicketController extends Zend_Controller_Action {
         $auth = Zend_Auth::getInstance();
         $info = $auth->getIdentity();
 
-        $params = array('limit'=>100);
+        $params = array('limit'=>15);
         $role = $info['role'];
         $render = 'administrador';
         
@@ -239,7 +239,7 @@ class Helpdesk_TicketController extends Zend_Controller_Action {
             if ($role['name'] == 'administrador') {
                 $render = 'administrador';
                 $params['cliente'] = $info['info']['cliente'];
-                
+                Zend_Debug::dump($info['info']['cliente']);
             } else if ($role['name'] != 'administrador') {
                 /*$params['departamento_id'] = $info['role']['role_id'];
                 $render = 'departamento';*/

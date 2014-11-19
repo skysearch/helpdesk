@@ -9,11 +9,11 @@ if(count($this->tikets_novos)>0) {
 <table class="data-table">
     <thead>
         <tr>
-            <th>Assunto</th>
-            <th width="10%">Cliente</th>
+            <th width="50%">Solicitação</th>
+            <th width="10%">Solicitante</th>
             <th width="10%">Operador</th>
-            <th width="11%">Data da Solicitação</th>
-            <th width="11%">Prazo</th>
+            <th width="12%">Data da Solicitação</th>
+            <th width="12%">Prazo</th>
             <!--<th width="8%"></th>-->
         </tr>
     </thead>
@@ -33,7 +33,7 @@ if(count($this->tikets_novos)>0) {
             <td><?php echo $this->translate($row['cliente']);?></td>
             <td><?php echo $this->escape($row['operador_nome']);?></td>
             <td><?php echo $row['created']->format('d/m/Y H:i');?></td>
-            <td><?php echo $row['prazo']->format('d/m/Y H:i');?></td>
+            <td><?php echo $row['prazo']->format('d/m/Y');?></td>
             <!--<td><a href="<?php echo $this->url(array('action'=>'editar','id'=>$row['ticket_id'])) ?>"><i class="fa fa-pencil"></i> Editar</a></td>-->
         </tr>
         <?php
@@ -52,11 +52,11 @@ if(count($this->tikets)>0) {
 <table class="data-table">
     <thead>
         <tr>
-            <th>Assunto</th>
-            <th width="10%">Cliente</th>
+            <th width="50%">Solicitação</th>
+            <th width="10%">Solicitante</th>
             <th width="10%">Operador</th>
-            <th width="11%">Data da Solicitação</th>
-            <th width="11%">Prazo</th>
+            <th width="12%">Data da Solicitação</th>
+            <th width="12%">Prazo</th>
         </tr>
     </thead>
     <tbody>
@@ -69,7 +69,7 @@ if(count($this->tikets)>0) {
                 if($row['status']=='novo-chamado') { 
                     echo '<i class="fa fa-envelope"></i> ';
                 } else if($row['status']=='em-andamento') {
-                    echo '<i class="fa fa-envelope-o"></i>';
+                    echo '<i class="fa fa-comment-o"></i>';
                 }
                 ?>
                 <a href="<?php echo $this->url(array('action'=>'andamento','id'=>$row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
@@ -77,7 +77,7 @@ if(count($this->tikets)>0) {
             <td><?php echo $this->translate($row['cliente']);?></td>
             <td><?php echo $this->escape($row['operador_nome']);?></td>
             <td><?php echo $row['created']->format('d/m/Y H:i');?></td>
-            <td><?php echo $row['prazo']->format('d/m/Y H:i');?></td>
+            <td><?php echo $row['prazo']->format('d/m/Y');?></td>
         </tr>
         <?php
         }
@@ -94,13 +94,12 @@ if (count($this->tikets_finalizados) > 0) {
     <table class="data-table">
         <thead>
             <tr>
-                <th>Assunto</th>
+                <th width="50%">Solicitação</th>
                 <th width="10%">Solicitante</th>
-                <th width="10%">Cliente</th>
                 <th width="10%">Operador</th>
-                <th width="11%">Data da Solicitação</th>
-                <th width="11%">Prazo</th>
-                <th width="11%">Data da Finalização</th>
+                <th width="8%">Data da Solicitação</th>
+                <th width="8%">Prazo</th>
+                <th width="8%">Data da Finalização</th>
             </tr>
         </thead>
         <tbody>
@@ -122,7 +121,7 @@ if (count($this->tikets_finalizados) > 0) {
                     <td><?php echo $this->translate($row['cliente']);?></td>
                     <td><?php echo $this->escape($row['operador_nome']); ?></td>
                     <td><?php echo $row['created']->format('d/m/Y H:i'); ?></td>
-                    <td><?php echo $row['prazo']->format('d/m/Y H:i'); ?></td>
+                    <td><?php echo $row['prazo']->format('d/m/Y'); ?></td>
                     <td><?php echo $row['modified']->format('d/m/Y H:i'); ?></td>
                 </tr>
                 <?php

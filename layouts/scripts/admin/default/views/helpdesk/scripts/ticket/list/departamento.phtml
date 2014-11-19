@@ -10,12 +10,12 @@ if(count($this->tikets_novos)>0) {
 <table class="data-table">
     <thead>
         <tr>
-            <th>Solicitação</th>
+            <th width="50%">Solicitação</th>
             <th width="6%">Prioridade</th>
             <th width="10%">Solicitante</th>
             <th width="10%">Operador</th>
-            <th width="11%">Data da Solicitação</th>
-            <th width="11%">Prazo</th>
+            <th width="12%">Data da Solicitação</th>
+            <th width="12%">Prazo</th>
         </tr>
     </thead>
     <tbody>
@@ -70,12 +70,12 @@ if(count($this->tikets)>0) {
 <table class="data-table">
     <thead>
         <tr>
-            <th>Solicitação</th>
+            <th width="50%">Solicitação</th>
             <th width="6%">Prioridade</th>
             <th width="10%">Solicitante</th>
             <th width="10%">Operador</th>
-            <th width="11%">Data da Solicitação</th>
-            <th width="11%">Prazo</th>
+            <th width="12%">Data da Solicitação</th>
+            <th width="12%">Prazo</th>
         </tr>
     </thead>
     <tbody>
@@ -88,7 +88,7 @@ if(count($this->tikets)>0) {
                             if ($row['status'] == 'novo-chamado') {
                                 echo '<i class="fa fa-envelope"></i> ';
                             } else if ($row['status'] == 'em-andamento') {
-                                echo '<i class="fa fa-envelope-o"></i>';
+                                echo '<i class="fa fa-comment-o"></i>';
                             }
                             ?>
                             <a href="<?php echo $this->url(array('action' => 'andamento', 'id' => $row['ticket_id'])); ?>"><?php echo $this->translate($row['assunto']); ?></a>
@@ -134,13 +134,13 @@ if (count($this->tikets_finalizados) > 0) {
     <table class="data-table">
     <thead>
         <tr>
-            <th>Solicitação</th>
+            <th width="50%">Solicitação</th>
             <th width="6%">Prioridade</th>
             <th width="10%">Solicitante</th>
             <th width="10%">Operador</th>
-            <th width="11%">Data da Solicitação</th>
-            <th width="11%">Prazo</th>
-            <th width="11%">Data da Finalização</th>
+            <th width="8%">Data da Solicitação</th>
+            <th width="8%">Prazo</th>
+            <th width="8%">Data da Finalização</th>
         </tr>
     </thead>
     <tbody>
