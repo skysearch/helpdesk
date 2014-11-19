@@ -35,8 +35,8 @@ class Application_Model_Default_Repository_Admin_Categoria extends Sky_Db_Reposi
     }
     
     public function translate($text){
-        $row = $this->getByName($text);
-        if(count($row)>0){
+        $row = $this->getByName($text);        
+        if(count($row)>0 && $text != '0'){
             return $row['description'];
         }
         

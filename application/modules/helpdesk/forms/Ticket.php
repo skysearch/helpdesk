@@ -156,6 +156,7 @@ class Helpdesk_Forms_Ticket extends Sky_Form_Jquery_Form {
             $this->addElements(array($operador, $cliente, /* $prazo, */ $priority, $status, $assunto, $descricao, $file, $submit));
             $this->addDisplayGroup(array('operador_id', 'cliente', /* 'prazo', */ 'prioridade', 'status'), 'DataOperador', array('legend' => 'Propriedades'));
             $this->addDisplayGroup(array('assunto', 'descricao', 'arquivo'), 'DataTicket', array('legend' => 'Informações do Chamado'));
+            
         } else if ($this->_level == self::FORMS_OPERATOR_CLIENTE) {
             $this->addElements(array(/* $departamento, */$assunto, $descricao, $file, $submit));
             $this->addDisplayGroup(array(/* 'departamento_id', */'assunto', 'descricao', 'arquivo'), 'DataTicket', array('legend' => 'Informações do Chamado'));

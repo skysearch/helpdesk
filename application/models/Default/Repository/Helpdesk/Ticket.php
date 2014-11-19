@@ -231,6 +231,7 @@ class Application_Model_Default_Repository_Helpdesk_Ticket extends Sky_Db_Reposi
     }*/
     
     public function get($options = array()) {
+        
         $func = $this->getTable('Ticket');
         
         $select = $func->select(Zend_Db_Table::SELECT_WITH_FROM_PART)
@@ -241,18 +242,20 @@ class Application_Model_Default_Repository_Helpdesk_Ticket extends Sky_Db_Reposi
         }*/
         
         if(key_exists('operador_id', $options)) {
-            $select->where("{$func}.operador_id=(?)",$options['operador_id']);
+            $select->where("({$func}.operador_id='{$options['operador_id']}' OR {$func}.proprietario='{$options['operador_id']}')");
         }   
         
         if(key_exists('proprietario', $options)) {
-            $select->where("{$func}.proprietario=(?)",$options['proprietario']);
+            $select->where("({$func}.proprietario='{$options['proprietario']}' OR {$func}.operador_id='{$options['proprietario']}')");
         } 
         
         if(key_exists('status', $options)) {
             $select->where("{$func}.status=(?)",$options['status']);
         }
         
-        if(key_exists('cliente', $options)) {
+        $auth = Zend_Auth::getInstance()->getIdentity();
+        
+        if(key_exists('cliente', $options) && $auth['role']['name']!='administrador') {
             if(is_array($options['cliente'])){
                 $w = array();
                 foreach ($options['cliente'] as $c){

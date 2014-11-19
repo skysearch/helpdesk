@@ -134,7 +134,7 @@ class Helpdesk_TicketController extends Zend_Controller_Action {
                 $data_row['prazo'] = $row->prazo->format('Y-m-d H:i');
                 $data_row['proprietario'] = $user['user']['user_id'];
                 $data_row['assunto'] = $row['assunto'];
-
+                                     
                 $data = array_merge($data_row, $data);
 
                 $id = $andamentos->insert($data);
